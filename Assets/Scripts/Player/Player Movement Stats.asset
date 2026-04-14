@@ -23,3 +23,14 @@ MonoBehaviour:
   GroundDetectionRayLength: 0.02
   HeadDetectionRayLength: 0.02
   HeadWidth: 0.75
+  JumpHeight: 3
+  JumpHeightCompensationFactor: 1.054
+  TimeTillJumpApex: 0.35
+  GravityOnReleaseMultiplier: 2
+  MaxFallSpeed: 26
+  NumberofJumpsAllowed: 2
+  TimeForUpwardsCancel: 0.2
+  ApexThreshold: 0.97
+  ApexHangTime: 0.021
+  JumpBufferTime: 0.125
+  JumpCoyoteTime: 0.1

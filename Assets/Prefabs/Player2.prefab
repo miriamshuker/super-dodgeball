@@ -248,6 +248,7 @@ MonoBehaviour:
   MoveStats: {fileID: 11400000, guid: 0f3e3e15718a45f40a06cbfa55c5327a, type: 2}
   _feetCollider: {fileID: 4863759163814081374}
   _bodyCollider: {fileID: 6990147292503782280}
+  _isAiming: 0
 --- !u!114 &7560747055679514588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,9 +274,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: DodgeballPlayer
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: Gamepad
+  m_DefaultActionMap: 7dcd04b5-4467-44c7-83ca-76ec4cc0afb4
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &5616619554675348098

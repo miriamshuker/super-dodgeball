@@ -3,7 +3,8 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
-    public static PlayerInput PlayerInput;
+    
+    [SerializeField] public static PlayerInput PlayerInput;
 
     public static Vector2 Movement;
     public static bool JumpWasPressed;

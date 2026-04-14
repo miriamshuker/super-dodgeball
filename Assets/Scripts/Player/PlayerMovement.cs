@@ -48,6 +48,9 @@ public class PlayerMovement : MonoBehaviour
     //JUMPING NOTE: look for input in Update, but do the movement in Fixed Update
 
 
+    public bool _isAiming;
+
+
     private void Awake()
     {
         _isFacingRight = true;
@@ -65,15 +68,24 @@ public class PlayerMovement : MonoBehaviour
     {
         CollisionChecks();
         Jump();
-        if (_isGrounded)
+        if (!_isAiming)
         {
-            Move(MoveStats.GroundAcceleration, MoveStats.GroundDeceleration, InputManager.Movement);
+            if (_isGrounded)
+            {
+                Move(MoveStats.GroundAcceleration, MoveStats.GroundDeceleration, InputManager.Movement);
+            }
+            else
+            {
+                Move(MoveStats.AirAcceleration, MoveStats.AirDeceleration, InputManager.Movement);
+                
+            }
         }
         else
         {
-            Move(MoveStats.AirAcceleration, MoveStats.AirDeceleration, InputManager.Movement);
-            
+            _moveVelocity = Vector2.Lerp(_moveVelocity, Vector2.zero, MoveStats.GroundDeceleration * Time.fixedDeltaTime);
+            _rb.linearVelocity = new Vector2(_moveVelocity.x, _rb.linearVelocity.y);
         }
+        
     }
 
 
@@ -141,7 +153,7 @@ public class PlayerMovement : MonoBehaviour
     {
 
         //WHEN JUMP BUTTON PRESSED
-        if (InputManager.JumpWasPressed)
+        if (InputManager.JumpWasPressed && !_isAiming)
         {
             _jumpBufferTimer = MoveStats.JumpBufferTime;
             _jumpReleaseDuringBuffer = false;

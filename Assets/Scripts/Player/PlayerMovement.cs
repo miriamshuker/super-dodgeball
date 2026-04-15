@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("References")]
     public PlayerMovementStats MoveStats;
+    public InputManager myInputManager;
     [SerializeField] private Collider2D _feetCollider;
     [SerializeField] private Collider2D _bodyCollider;
 
@@ -72,11 +73,11 @@ public class PlayerMovement : MonoBehaviour
         {
             if (_isGrounded)
             {
-                Move(MoveStats.GroundAcceleration, MoveStats.GroundDeceleration, InputManager.Movement);
+                Move(MoveStats.GroundAcceleration, MoveStats.GroundDeceleration, myInputManager.Movement);
             }
             else
             {
-                Move(MoveStats.AirAcceleration, MoveStats.AirDeceleration, InputManager.Movement);
+                Move(MoveStats.AirAcceleration, MoveStats.AirDeceleration, myInputManager.Movement);
                 
             }
         }
@@ -153,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
     {
 
         //WHEN JUMP BUTTON PRESSED
-        if (InputManager.JumpWasPressed && !_isAiming)
+        if (myInputManager.JumpWasPressed && !_isAiming)
         {
             _jumpBufferTimer = MoveStats.JumpBufferTime;
             _jumpReleaseDuringBuffer = false;
@@ -161,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
         }
         
         //WHEN JUMP RELEASED
-        if (InputManager.JumpWasReleased)
+        if (myInputManager.JumpWasReleased)
         {
             if(_jumpBufferTimer > 0f)
             {

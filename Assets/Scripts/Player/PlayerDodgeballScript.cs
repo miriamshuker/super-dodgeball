@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class PlayerDodgeballScript : MonoBehaviour
 {
-
+    
+    public InputManager myInputManager;
     public GameObject heldDodgeballAsset;
     private GameObject hitDodgeball;
     [SerializeField]
@@ -55,12 +56,12 @@ public class PlayerDodgeballScript : MonoBehaviour
         //using movement controls
         //WHEN RELEASED 
         //Instantiate an instance of the dodgeball prefab, set it to LIVE, and throw it in the direction you're facing 
-        if (InputManager.ThrowWasPressed)
+        if (myInputManager.ThrowWasPressed)
         {
             Debug.Log("Aiming...");
             playerMovement._isAiming = true;
         }
-        else if (InputManager.ThrowWasReleased)
+        else if (myInputManager.ThrowWasReleased)
         {
             Debug.Log("firing");
             playerMovement._isAiming = false;

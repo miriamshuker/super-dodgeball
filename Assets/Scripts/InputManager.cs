@@ -4,15 +4,16 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     
-    [SerializeField] public static PlayerInput PlayerInput;
+    [SerializeField] 
+    public PlayerInput PlayerInput;
 
-    public static Vector2 Movement;
-    public static bool JumpWasPressed;
-    public static bool JumpIsHeld;
-    public static bool JumpWasReleased;
-    public static bool ThrowWasPressed;
-    public static bool ThrowIsHeld;
-    public static bool ThrowWasReleased;
+    public Vector2 Movement;
+    public bool JumpWasPressed;
+    public bool JumpIsHeld;
+    public bool JumpWasReleased;
+    public bool ThrowWasPressed;
+    public bool ThrowIsHeld;
+    public bool ThrowWasReleased;
 
 
     private InputAction _moveAction;
@@ -30,7 +31,6 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
-        Movement = _moveAction.ReadValue<Vector2>();
 
         JumpWasPressed = _jumpAction.WasPressedThisFrame();
         JumpIsHeld = _jumpAction.IsPressed();
@@ -39,5 +39,11 @@ public class InputManager : MonoBehaviour
         ThrowWasPressed = _throwAction.WasPressedThisFrame();
         ThrowIsHeld = _throwAction.IsPressed();
         ThrowWasReleased = _throwAction.WasReleasedThisFrame();
+    }
+
+    public void UpdateMoveValues(InputAction.CallbackContext context)
+    {
+        Movement = context.ReadValue<Vector2>();
+        Debug.Log("I am " + this.name + " and my movement vector is " + Movement);
     }
 }

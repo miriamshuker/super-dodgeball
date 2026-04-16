@@ -44,6 +44,6 @@ public class InputManager : MonoBehaviour
     public void UpdateMoveValues(InputAction.CallbackContext context)
     {
         Movement = context.ReadValue<Vector2>();
-        Debug.Log("I am " + this.name + " and my movement vector is " + Movement);
+        //Debug.Log("I am " + this.name + " and my movement vector is " + Movement);
     }
 }

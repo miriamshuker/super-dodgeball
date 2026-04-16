@@ -5,22 +5,39 @@ public class PlayerDodgeballScript : MonoBehaviour
     
     public InputManager myInputManager;
     public GameObject heldDodgeballAsset;
+    private SpriteRenderer heldDodgeballSpriteRenderer; 
+    private Color lerpedColor = Color.white;
     private GameObject hitDodgeball;
     [SerializeField]
     public GameObject dodgeballPrefab;
     public PlayerMovement playerMovement;
+    private bool holdingDodgeball = false;
+    private float timeSpentAiming = 0f;
+    private float maxAimingTime = 5f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
+        heldDodgeballSpriteRenderer = heldDodgeballAsset.GetComponent<SpriteRenderer>();
+        
         heldDodgeballAsset.SetActive(false);   
     }
 
     // Update is called once per frame
     void Update()
     {
-        ThrowCheck();
+        if (holdingDodgeball)
+        {
+            ThrowCheck();
+        }
+
+        if (playerMovement._isAiming)
+        {
+            HoldingThrowTimer();
+            lerpedColor = Color.Lerp(Color.red, Color.white, Mathf.PingPong(Time.time, (2/timeSpentAiming)));
+            heldDodgeballSpriteRenderer.color = lerpedColor;
+        }
     }
 
     void FixedUpdate()
@@ -32,30 +49,41 @@ public class PlayerDodgeballScript : MonoBehaviour
         if(collision.gameObject.CompareTag("Dodgeball"))
         {
             hitDodgeball = collision.gameObject;
-            DodgeballScript dbs_heldDodgeball = hitDodgeball.GetComponent<DodgeballScript>();
-            if (dbs_heldDodgeball._isLive)
+            DodgeballScript _hitDodgeBallScript = hitDodgeball.GetComponent<DodgeballScript>();
+
+
+            if (_hitDodgeBallScript._isLive && _hitDodgeBallScript.originPlayer != this.name)
             {
                 Debug.Log("OUCH");
+
+                
+                //LOSE HEALTH AND REFLECT DODGEBALL 
+                _hitDodgeBallScript._isLive = false;
+                _hitDodgeBallScript.originPlayer = "";
             }
-            else
+
+            else if (!_hitDodgeBallScript._isLive && !holdingDodgeball)
             {
                 Destroy(hitDodgeball);
                 Debug.Log("Pick up Dodgeball"); 
                 heldDodgeballAsset.SetActive(true);
+                holdingDodgeball = true;
             }
         }
     }
 
 
     #region Throwing
-    private void ThrowCheck()
-    {
+    
         //WHEN THROW BUTTON PRESSED
         //Check to make sure you're holding dodgeball, otherwise dont do anything
         //if you are, WHILE YOU'RE HOLDING THE BUTTON, halt movement and let the player begin to aim
         //using movement controls
         //WHEN RELEASED 
         //Instantiate an instance of the dodgeball prefab, set it to LIVE, and throw it in the direction you're facing 
+
+    private void ThrowCheck()
+    {
         if (myInputManager.ThrowWasPressed)
         {
             Debug.Log("Aiming...");
@@ -63,8 +91,39 @@ public class PlayerDodgeballScript : MonoBehaviour
         }
         else if (myInputManager.ThrowWasReleased)
         {
-            Debug.Log("firing");
-            playerMovement._isAiming = false;
+            Throw();
+        }
+    }
+
+    private void Throw()
+    {
+        Debug.Log("firing");
+
+        playerMovement._isAiming = false;
+        heldDodgeballSpriteRenderer.color = Color.white;
+        heldDodgeballAsset.SetActive(false);
+        lerpedColor = Color.white;
+        holdingDodgeball = false;
+
+        //Instantiate dodgeball and throw it at an angle
+        GameObject dodgeballInst = Instantiate(dodgeballPrefab, transform.position, transform.rotation);
+            
+        DodgeballScript thrownDodgeballScript = dodgeballInst.GetComponent<DodgeballScript>();
+        thrownDodgeballScript.originPlayer = this.name;
+        thrownDodgeballScript._isLive = true;
+        dodgeballInst.GetComponent<Rigidbody2D>().AddForce(transform.right * 100f * (1f + timeSpentAiming));
+        timeSpentAiming = 0f;
+        
+    }
+    #endregion
+
+    #region Timer
+
+    private void HoldingThrowTimer()
+    {
+        if (timeSpentAiming < maxAimingTime)
+        {
+            timeSpentAiming += Time.deltaTime;
         }
     }
     #endregion

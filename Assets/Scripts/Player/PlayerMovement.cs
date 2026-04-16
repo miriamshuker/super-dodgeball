@@ -83,8 +83,10 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            TurnCheck(myInputManager.Movement);
             _moveVelocity = Vector2.Lerp(_moveVelocity, Vector2.zero, MoveStats.GroundDeceleration * Time.fixedDeltaTime);
             _rb.linearVelocity = new Vector2(_moveVelocity.x, _rb.linearVelocity.y);
+            
         }
         
     }

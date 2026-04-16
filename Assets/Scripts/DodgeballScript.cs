@@ -4,15 +4,16 @@ public class DodgeballScript : MonoBehaviour
 {
     
     public bool _isLive = false;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public string originPlayer = "";
 
-    // Update is called once per frame
-    void Update()
+ 
+    //Reset to "not live" and remove any "origin player" when im thrown
+    void OnCollisionEnter2D(Collision2D col)
     {
-        
+       if(col.gameObject.CompareTag("Ground"))
+        {
+            _isLive = false;
+            originPlayer = "";
+        }
     }
 }

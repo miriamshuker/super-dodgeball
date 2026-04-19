@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Collider2D _feetCollider;
     [SerializeField] private Collider2D _bodyCollider;
 
+    [SerializeField] private Animator anim;
+
     private Rigidbody2D _rb;
 
     //movement variables
@@ -57,12 +59,17 @@ public class PlayerMovement : MonoBehaviour
         _isFacingRight = true;
 
         _rb = GetComponent<Rigidbody2D>();
+
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
     {
         JumpChecks();
         CountTimers();
+
+        //Luke Animation Stuff
+        DrawAnimations();
     }
 
     private void FixedUpdate()
@@ -404,7 +411,20 @@ public class PlayerMovement : MonoBehaviour
             _coyoteTimer = MoveStats.JumpCoyoteTime;
         }
     }
-   #endregion
+    #endregion
 
 
+    #region Animations
+    private void DrawAnimations()
+    {
+        //x
+        anim.SetFloat("moveX", Mathf.Abs(myInputManager.Movement.x));
+        anim.SetFloat("xVel", Mathf.Abs(_rb.linearVelocity.x));
+
+        //y
+        anim.SetBool("jump", _isJumping);
+        anim.SetFloat("yVel", _rb.linearVelocity.y);
+        anim.SetBool("grounded", _isGrounded);
+    }
+    #endregion
 }

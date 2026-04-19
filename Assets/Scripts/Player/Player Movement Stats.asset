@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f201a9714cad2149b17bf6202e5b09d, type: 3}
   m_Name: Player Movement Stats
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovementStats
-  MaxWalkSpeed: 12.5
-  GroundAcceleration: 5
-  GroundDeceleration: 20
+  MaxWalkSpeed: 70
+  GroundAcceleration: 20
+  GroundDeceleration: 10
   AirAcceleration: 5
   AirDeceleration: 5
   GroundLayer:

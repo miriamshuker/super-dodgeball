@@ -4,11 +4,11 @@ using UnityEngine;
 public class PlayerMovementStats : ScriptableObject
 {
     [Header("Walk")]
-    [Range(1f,100f)] public float MaxWalkSpeed = 12.5f;
-    [Range(0.25f,50f)] public float GroundAcceleration = 5f;
-    [Range(0.25f,50f)] public float GroundDeceleration = 20f;
-    [Range(0.25f,50f)] public float AirAcceleration = 5f;
-    [Range(0.25f,50f)] public float AirDeceleration = 5f;
+    public float MaxWalkSpeed = 12.5f;
+    public float GroundAcceleration = 5f;
+    public float GroundDeceleration = 20f;
+    public float AirAcceleration = 5f;
+    public float AirDeceleration = 5f;
 
     
     [Header("Grounded/Collision Checks")]
@@ -20,24 +20,24 @@ public class PlayerMovementStats : ScriptableObject
     
     [Header("Jump")]
     public float JumpHeight = 6.5f;
-    [Range(1f,1.1f)] public float JumpHeightCompensationFactor = 1.054f;
+    public float JumpHeightCompensationFactor = 1.054f;
     public float TimeTillJumpApex = 0.35f;
-    [Range(0.01f,5f)] public float GravityOnReleaseMultiplier = 2f;
+    public float GravityOnReleaseMultiplier = 32f;
     public float MaxFallSpeed = 26f;
-    [Range(1,5)] public int NumberofJumpsAllowed = 2;
+    public int NumberofJumpsAllowed = 2;
 
      
     [Header("Jump Cut")]
-    [Range(0.2f, 0.3f)] public float TimeForUpwardsCancel = 0.027f;
+    public float TimeForUpwardsCancel = 0.027f;
 
     
     [Header("Jump Apex")]
-    [Range(0.5f, 1f)] public float ApexThreshold = 0.97f;
-    [Range(0.01f, 1f)] public float ApexHangTime = 0.075f;
+    public float ApexThreshold = 0.97f;
+    public float ApexHangTime = 0.075f;
 
     
     [Header("Jump Buffer")]
-    [Range(0f, 1f)] public float JumpBufferTime = 0.125f;
+    public float JumpBufferTime = 0.125f;
 
     
     [Header("Jump Coyote Time")]

@@ -256,6 +256,7 @@ public class PlayerMovement : MonoBehaviour
             //CHECK FOR HEAD BUMP
             if (_bumpedHead)
             {
+                Debug.Log("OUCH! Bumped my head");
                 _isFastFalling = true;
             }
 
@@ -344,7 +345,7 @@ public class PlayerMovement : MonoBehaviour
         //CLAMP FALL SPEED
         VerticalVelocity = Mathf.Clamp(VerticalVelocity, -MoveStats.MaxFallSpeed, 50f);
 
-        _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, VerticalVelocity);
+        _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, VerticalVelocity*3f);
 
     }
 
@@ -387,11 +388,27 @@ public class PlayerMovement : MonoBehaviour
         {
             _bumpedHead = false;
         }
+
+        float headWidth = MoveStats.HeadWidth;
+        Color rayColor;
+        if (_bumpedHead)
+        {
+            rayColor = Color.green;
+        }
+        else
+        {
+            rayColor = Color.red;
+        }
+
+        Debug.DrawRay(new Vector2(boxCastOrigin.x - boxCastSize.x / 2 * headWidth, boxCastOrigin.y), Vector2.up * MoveStats.HeadDetectionRayLength, rayColor);
+        Debug.DrawRay(new Vector2(boxCastOrigin.x + (boxCastSize.x / 2) * headWidth, boxCastOrigin.y), Vector2.up * MoveStats.HeadDetectionRayLength, rayColor);
+        Debug.DrawRay(new Vector2(boxCastOrigin.x - boxCastSize.x / 2 * headWidth, boxCastOrigin.y + MoveStats.HeadDetectionRayLength), Vector2.right * boxCastSize.x * headWidth, rayColor);
     }
 
     private void CollisionChecks()
     {
         IsGrounded();
+        BumpedHead();
     }
 
     #endregion

@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 33327375}
   m_Layer: 0
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1201,7 +1201,7 @@ GameObject:
   - component: {fileID: 128728989}
   m_Layer: 6
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2660,6 +2660,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dodgeball (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6424567767784422375, guid: e2b8d3291d5831a468ed686807278f87, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3121,25 +3125,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5543771328948428432, guid: e2b8d3291d5831a468ed686807278f87, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543771328948428432, guid: e2b8d3291d5831a468ed686807278f87, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543771328948428432, guid: e2b8d3291d5831a468ed686807278f87, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6326424343055669637, guid: e2b8d3291d5831a468ed686807278f87, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.75
+      value: -4.9
       objectReference: {fileID: 0}
     - target: {fileID: 6326424343055669637, guid: e2b8d3291d5831a468ed686807278f87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.939999
+      value: 28.5
       objectReference: {fileID: 0}
     - target: {fileID: 6326424343055669637, guid: e2b8d3291d5831a468ed686807278f87, type: 3}
       propertyPath: m_LocalPosition.z

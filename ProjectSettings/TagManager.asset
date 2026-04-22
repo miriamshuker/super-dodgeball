@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Dodgeball
   - Ground
+  - Terrain
   layers:
   - Default
   - TransparentFX

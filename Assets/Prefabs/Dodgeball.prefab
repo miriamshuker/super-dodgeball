@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5670594869731384335}
   - component: {fileID: 7202787056867616480}
   - component: {fileID: 130348357822740187}
+  - component: {fileID: -2349014139035386812}
   m_Layer: 8
   m_Name: Dodgeball
   m_TagString: Dodgeball
@@ -171,3 +172,15 @@ MonoBehaviour:
   _isLive: 1
   originPlayer: 
   bounce: 0.7
+--- !u!114 &-2349014139035386812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6424567767784422375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 351ab5dbf856cc34dbf4cf5884619c21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScreenWrapping

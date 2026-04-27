@@ -8,7 +8,9 @@ public class PlayerJoinScript : MonoBehaviour
 
     private void Awake()
     {
-        Instantiate(Player1, SpawnPoint1.position,SpawnPoint1.rotation);
-        Instantiate(Player2, SpawnPoint2.position,SpawnPoint2.rotation);
+        GameObject player1 =  Instantiate(Player1, SpawnPoint1.position,SpawnPoint1.rotation);
+        player1.name = "Player 1";
+        GameObject player2 =  Instantiate(Player2, SpawnPoint2.position,SpawnPoint2.rotation);
+        player2.name = "Player 2";
     }
 }

@@ -9,6 +9,13 @@ public class ScreenWrapping : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+
+        Vector2 bottomLeft = Camera.main.ScreenToWorldPoint(Vector2.zero);
+        Vector2 topRight = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+
+        float width = topRight.x - bottomLeft.x;
+        float height = topRight.y - bottomLeft.y;
     }
 
     private void Update()
@@ -22,6 +29,8 @@ public class ScreenWrapping : MonoBehaviour
         
         float topOfScreen = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height)).y;
         float bottomOfScreen = Camera.main.ScreenToWorldPoint(new Vector2(0f,0f)).y;
+
+
 
 
         //left

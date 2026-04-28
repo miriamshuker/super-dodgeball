@@ -39,7 +39,10 @@ public class DodgeballSpawnerScript : MonoBehaviour
     private void SpawnDodgeball()
     {
         GameObject selectedSpawnpoint = spawnPoints[Random.Range(0, spawnPoints.Count)];
-        GameObject dodgeballInst = Instantiate(dodgeballPrefab, selectedSpawnpoint.transform.position, selectedSpawnpoint.transform.rotation);
+        Vector2 dodgeballSpawn = new Vector2(selectedSpawnpoint.transform.position.x + (Random.Range(-15f, 15f)),selectedSpawnpoint.transform.position.y + (Random.Range(-15f, 15f)));
+        GameObject dodgeballInst = Instantiate(dodgeballPrefab, dodgeballSpawn, selectedSpawnpoint.transform.rotation);
+        dodgeballInst.GetComponent<DodgeballScript>()._isLive = false;
+        
         dodgeballsSpawned += 1;
         if(dodgeballsSpawned > 10)
         {

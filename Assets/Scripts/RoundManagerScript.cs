@@ -2,19 +2,28 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic;
 
 public class RoundManagerScript : MonoBehaviour
 {
 
+    
+    [Header("Round Data")]
     [SerializeField] 
     public DodgeballInputs _input;
     public int pointsToWin = 1;
     public int p1_wins = 0;
     public int p2_wins = 0;
 
+    
+    [Header("UI")]
     public GameObject p1WinsUI;
     public GameObject p2WinsUI;
     public GameObject nextRoundUI;
+
+
+    [Header("List of Scene Names")]
+    public List<string> sceneNames;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -64,7 +73,7 @@ public class RoundManagerScript : MonoBehaviour
 
     public void StartRound()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene(sceneNames[Random.Range(0, sceneNames.Count)]);
         _input.DodgeballPlayer.Enable();
         _input.UI.Disable();
     }

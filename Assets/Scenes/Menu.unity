@@ -1211,6 +1211,8 @@ MonoBehaviour:
   p1WinsUI: {fileID: 1643042534}
   p2WinsUI: {fileID: 320379018}
   nextRoundUI: {fileID: 406306289}
+  sceneNames:
+  - SampleScene
 --- !u!1 &576760644
 GameObject:
   m_ObjectHideFlags: 0

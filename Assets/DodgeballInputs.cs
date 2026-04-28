@@ -89,7 +89,7 @@ public partial class @DodgeballInputs: IInputActionCollection2, IDisposable
     ""name"": ""DodgeballInputs"",
     ""maps"": [
         {
-            ""name"": ""DodgeballPlayer1"",
+            ""name"": ""DodgeballPlayer"",
             ""id"": ""73c5e64d-f362-4147-a4af-e932324f646e"",
             ""actions"": [
                 {
@@ -234,31 +234,22 @@ public partial class @DodgeballInputs: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""DodgeballPlayer2"",
-            ""id"": ""e5d6d299-55f4-4fcb-a6cf-5e781e6df63e"",
+            ""name"": ""UI"",
+            ""id"": ""eed7c0bb-270b-41a8-80e4-2d5619caee4b"",
             ""actions"": [
                 {
-                    ""name"": ""Move"",
+                    ""name"": ""Navigate"",
                     ""type"": ""Value"",
-                    ""id"": ""cba548fb-3543-4397-babf-a010b8428326"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""id"": ""5e907e74-5131-4d1a-91aa-cb29257b703b"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Jump"",
+                    ""name"": ""Confirm"",
                     ""type"": ""Button"",
-                    ""id"": ""e1262077-d225-4f50-bb4e-97b74cdb63eb"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Throw"",
-                    ""type"": ""Button"",
-                    ""id"": ""773bdb40-ae42-4e42-905b-03a3f48e14fe"",
+                    ""id"": ""ca604788-9b73-429c-a587-10142015465b"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -268,111 +259,56 @@ public partial class @DodgeballInputs: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""3973afe1-1de6-4780-a162-3f8d6cb9c195"",
+                    ""id"": ""9f60d7bc-f4e8-44a7-bfb4-07117aceaaf8"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";DodgeballControllScheme"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""WASD"",
-                    ""id"": ""8b85bc00-1d19-435b-bc02-568e798b5da0"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""cc4f72a8-e627-43b1-aad6-cdb06b94a139"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";DodgeballControllScheme"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""a5ce9520-2bf8-4dca-a4fa-5a4e4b5233b3"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";DodgeballControllScheme"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""401a8cb6-f64f-4223-8111-a78b71c6ff12"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";DodgeballControllScheme"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""ad119d81-6aef-4a04-89bd-2a6c9f6dd1a6"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";DodgeballControllScheme"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""994e73a0-6987-49b8-a025-f597afc422af"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";DodgeballControllScheme"",
-                    ""action"": ""Jump"",
+                    ""action"": ""Navigate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""4ae97a0a-bb88-49d1-9d24-ff8d17f0cb80"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";DodgeballControllScheme"",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""30bb055b-f7da-49c2-a6b0-7e85a64c7503"",
+                    ""id"": ""df38aa67-4482-4170-8b77-61cbb9e55b60"",
                     ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";DodgeballControllScheme"",
-                    ""action"": ""Throw"",
+                    ""groups"": """",
+                    ""action"": ""Confirm"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ea88540d-2f58-4309-aed5-07e880039630"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""id"": ""85139a2c-d159-4169-bbc0-f632f8a18e10"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";DodgeballControllScheme"",
-                    ""action"": ""Throw"",
+                    ""groups"": """",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a368aaef-fe2e-473b-960f-bf3350a72371"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f3d04e84-2406-4a70-8513-1dc272d565ba"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Confirm"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -398,22 +334,21 @@ public partial class @DodgeballInputs: IInputActionCollection2, IDisposable
         }
     ]
 }");
-        // DodgeballPlayer1
-        m_DodgeballPlayer1 = asset.FindActionMap("DodgeballPlayer1", throwIfNotFound: true);
-        m_DodgeballPlayer1_Move = m_DodgeballPlayer1.FindAction("Move", throwIfNotFound: true);
-        m_DodgeballPlayer1_Jump = m_DodgeballPlayer1.FindAction("Jump", throwIfNotFound: true);
-        m_DodgeballPlayer1_Throw = m_DodgeballPlayer1.FindAction("Throw", throwIfNotFound: true);
-        // DodgeballPlayer2
-        m_DodgeballPlayer2 = asset.FindActionMap("DodgeballPlayer2", throwIfNotFound: true);
-        m_DodgeballPlayer2_Move = m_DodgeballPlayer2.FindAction("Move", throwIfNotFound: true);
-        m_DodgeballPlayer2_Jump = m_DodgeballPlayer2.FindAction("Jump", throwIfNotFound: true);
-        m_DodgeballPlayer2_Throw = m_DodgeballPlayer2.FindAction("Throw", throwIfNotFound: true);
+        // DodgeballPlayer
+        m_DodgeballPlayer = asset.FindActionMap("DodgeballPlayer", throwIfNotFound: true);
+        m_DodgeballPlayer_Move = m_DodgeballPlayer.FindAction("Move", throwIfNotFound: true);
+        m_DodgeballPlayer_Jump = m_DodgeballPlayer.FindAction("Jump", throwIfNotFound: true);
+        m_DodgeballPlayer_Throw = m_DodgeballPlayer.FindAction("Throw", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
+        m_UI_Confirm = m_UI.FindAction("Confirm", throwIfNotFound: true);
     }
 
     ~@DodgeballInputs()
     {
-        UnityEngine.Debug.Assert(!m_DodgeballPlayer1.enabled, "This will cause a leak and performance issues, DodgeballInputs.DodgeballPlayer1.Disable() has not been called.");
-        UnityEngine.Debug.Assert(!m_DodgeballPlayer2.enabled, "This will cause a leak and performance issues, DodgeballInputs.DodgeballPlayer2.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_DodgeballPlayer.enabled, "This will cause a leak and performance issues, DodgeballInputs.DodgeballPlayer.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, DodgeballInputs.UI.Disable() has not been called.");
     }
 
     /// <summary>
@@ -486,39 +421,39 @@ public partial class @DodgeballInputs: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // DodgeballPlayer1
-    private readonly InputActionMap m_DodgeballPlayer1;
-    private List<IDodgeballPlayer1Actions> m_DodgeballPlayer1ActionsCallbackInterfaces = new List<IDodgeballPlayer1Actions>();
-    private readonly InputAction m_DodgeballPlayer1_Move;
-    private readonly InputAction m_DodgeballPlayer1_Jump;
-    private readonly InputAction m_DodgeballPlayer1_Throw;
+    // DodgeballPlayer
+    private readonly InputActionMap m_DodgeballPlayer;
+    private List<IDodgeballPlayerActions> m_DodgeballPlayerActionsCallbackInterfaces = new List<IDodgeballPlayerActions>();
+    private readonly InputAction m_DodgeballPlayer_Move;
+    private readonly InputAction m_DodgeballPlayer_Jump;
+    private readonly InputAction m_DodgeballPlayer_Throw;
     /// <summary>
-    /// Provides access to input actions defined in input action map "DodgeballPlayer1".
+    /// Provides access to input actions defined in input action map "DodgeballPlayer".
     /// </summary>
-    public struct DodgeballPlayer1Actions
+    public struct DodgeballPlayerActions
     {
         private @DodgeballInputs m_Wrapper;
 
         /// <summary>
         /// Construct a new instance of the input action map wrapper class.
         /// </summary>
-        public DodgeballPlayer1Actions(@DodgeballInputs wrapper) { m_Wrapper = wrapper; }
+        public DodgeballPlayerActions(@DodgeballInputs wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "DodgeballPlayer1/Move".
+        /// Provides access to the underlying input action "DodgeballPlayer/Move".
         /// </summary>
-        public InputAction @Move => m_Wrapper.m_DodgeballPlayer1_Move;
+        public InputAction @Move => m_Wrapper.m_DodgeballPlayer_Move;
         /// <summary>
-        /// Provides access to the underlying input action "DodgeballPlayer1/Jump".
+        /// Provides access to the underlying input action "DodgeballPlayer/Jump".
         /// </summary>
-        public InputAction @Jump => m_Wrapper.m_DodgeballPlayer1_Jump;
+        public InputAction @Jump => m_Wrapper.m_DodgeballPlayer_Jump;
         /// <summary>
-        /// Provides access to the underlying input action "DodgeballPlayer1/Throw".
+        /// Provides access to the underlying input action "DodgeballPlayer/Throw".
         /// </summary>
-        public InputAction @Throw => m_Wrapper.m_DodgeballPlayer1_Throw;
+        public InputAction @Throw => m_Wrapper.m_DodgeballPlayer_Throw;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
-        public InputActionMap Get() { return m_Wrapper.m_DodgeballPlayer1; }
+        public InputActionMap Get() { return m_Wrapper.m_DodgeballPlayer; }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
         public void Enable() { Get().Enable(); }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
@@ -526,9 +461,9 @@ public partial class @DodgeballInputs: IInputActionCollection2, IDisposable
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
         public bool enabled => Get().enabled;
         /// <summary>
-        /// Implicitly converts an <see ref="DodgeballPlayer1Actions" /> to an <see ref="InputActionMap" /> instance.
+        /// Implicitly converts an <see ref="DodgeballPlayerActions" /> to an <see ref="InputActionMap" /> instance.
         /// </summary>
-        public static implicit operator InputActionMap(DodgeballPlayer1Actions set) { return set.Get(); }
+        public static implicit operator InputActionMap(DodgeballPlayerActions set) { return set.Get(); }
         /// <summary>
         /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
         /// </summary>
@@ -536,11 +471,11 @@ public partial class @DodgeballInputs: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
         /// </remarks>
-        /// <seealso cref="DodgeballPlayer1Actions" />
-        public void AddCallbacks(IDodgeballPlayer1Actions instance)
+        /// <seealso cref="DodgeballPlayerActions" />
+        public void AddCallbacks(IDodgeballPlayerActions instance)
         {
-            if (instance == null || m_Wrapper.m_DodgeballPlayer1ActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_DodgeballPlayer1ActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_DodgeballPlayerActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_DodgeballPlayerActionsCallbackInterfaces.Add(instance);
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
@@ -558,8 +493,8 @@ public partial class @DodgeballInputs: IInputActionCollection2, IDisposable
         /// <remarks>
         /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
         /// </remarks>
-        /// <seealso cref="DodgeballPlayer1Actions" />
-        private void UnregisterCallbacks(IDodgeballPlayer1Actions instance)
+        /// <seealso cref="DodgeballPlayerActions" />
+        private void UnregisterCallbacks(IDodgeballPlayerActions instance)
         {
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
@@ -573,12 +508,12 @@ public partial class @DodgeballInputs: IInputActionCollection2, IDisposable
         }
 
         /// <summary>
-        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="DodgeballPlayer1Actions.UnregisterCallbacks(IDodgeballPlayer1Actions)" />.
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="DodgeballPlayerActions.UnregisterCallbacks(IDodgeballPlayerActions)" />.
         /// </summary>
-        /// <seealso cref="DodgeballPlayer1Actions.UnregisterCallbacks(IDodgeballPlayer1Actions)" />
-        public void RemoveCallbacks(IDodgeballPlayer1Actions instance)
+        /// <seealso cref="DodgeballPlayerActions.UnregisterCallbacks(IDodgeballPlayerActions)" />
+        public void RemoveCallbacks(IDodgeballPlayerActions instance)
         {
-            if (m_Wrapper.m_DodgeballPlayer1ActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_DodgeballPlayerActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
@@ -588,55 +523,50 @@ public partial class @DodgeballInputs: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
         /// </remarks>
-        /// <seealso cref="DodgeballPlayer1Actions.AddCallbacks(IDodgeballPlayer1Actions)" />
-        /// <seealso cref="DodgeballPlayer1Actions.RemoveCallbacks(IDodgeballPlayer1Actions)" />
-        /// <seealso cref="DodgeballPlayer1Actions.UnregisterCallbacks(IDodgeballPlayer1Actions)" />
-        public void SetCallbacks(IDodgeballPlayer1Actions instance)
+        /// <seealso cref="DodgeballPlayerActions.AddCallbacks(IDodgeballPlayerActions)" />
+        /// <seealso cref="DodgeballPlayerActions.RemoveCallbacks(IDodgeballPlayerActions)" />
+        /// <seealso cref="DodgeballPlayerActions.UnregisterCallbacks(IDodgeballPlayerActions)" />
+        public void SetCallbacks(IDodgeballPlayerActions instance)
         {
-            foreach (var item in m_Wrapper.m_DodgeballPlayer1ActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_DodgeballPlayerActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_DodgeballPlayer1ActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_DodgeballPlayerActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
     /// <summary>
-    /// Provides a new <see cref="DodgeballPlayer1Actions" /> instance referencing this action map.
+    /// Provides a new <see cref="DodgeballPlayerActions" /> instance referencing this action map.
     /// </summary>
-    public DodgeballPlayer1Actions @DodgeballPlayer1 => new DodgeballPlayer1Actions(this);
+    public DodgeballPlayerActions @DodgeballPlayer => new DodgeballPlayerActions(this);
 
-    // DodgeballPlayer2
-    private readonly InputActionMap m_DodgeballPlayer2;
-    private List<IDodgeballPlayer2Actions> m_DodgeballPlayer2ActionsCallbackInterfaces = new List<IDodgeballPlayer2Actions>();
-    private readonly InputAction m_DodgeballPlayer2_Move;
-    private readonly InputAction m_DodgeballPlayer2_Jump;
-    private readonly InputAction m_DodgeballPlayer2_Throw;
+    // UI
+    private readonly InputActionMap m_UI;
+    private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
+    private readonly InputAction m_UI_Navigate;
+    private readonly InputAction m_UI_Confirm;
     /// <summary>
-    /// Provides access to input actions defined in input action map "DodgeballPlayer2".
+    /// Provides access to input actions defined in input action map "UI".
     /// </summary>
-    public struct DodgeballPlayer2Actions
+    public struct UIActions
     {
         private @DodgeballInputs m_Wrapper;
 
         /// <summary>
         /// Construct a new instance of the input action map wrapper class.
         /// </summary>
-        public DodgeballPlayer2Actions(@DodgeballInputs wrapper) { m_Wrapper = wrapper; }
+        public UIActions(@DodgeballInputs wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "DodgeballPlayer2/Move".
+        /// Provides access to the underlying input action "UI/Navigate".
         /// </summary>
-        public InputAction @Move => m_Wrapper.m_DodgeballPlayer2_Move;
+        public InputAction @Navigate => m_Wrapper.m_UI_Navigate;
         /// <summary>
-        /// Provides access to the underlying input action "DodgeballPlayer2/Jump".
+        /// Provides access to the underlying input action "UI/Confirm".
         /// </summary>
-        public InputAction @Jump => m_Wrapper.m_DodgeballPlayer2_Jump;
-        /// <summary>
-        /// Provides access to the underlying input action "DodgeballPlayer2/Throw".
-        /// </summary>
-        public InputAction @Throw => m_Wrapper.m_DodgeballPlayer2_Throw;
+        public InputAction @Confirm => m_Wrapper.m_UI_Confirm;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
-        public InputActionMap Get() { return m_Wrapper.m_DodgeballPlayer2; }
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
         public void Enable() { Get().Enable(); }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
@@ -644,9 +574,9 @@ public partial class @DodgeballInputs: IInputActionCollection2, IDisposable
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
         public bool enabled => Get().enabled;
         /// <summary>
-        /// Implicitly converts an <see ref="DodgeballPlayer2Actions" /> to an <see ref="InputActionMap" /> instance.
+        /// Implicitly converts an <see ref="UIActions" /> to an <see ref="InputActionMap" /> instance.
         /// </summary>
-        public static implicit operator InputActionMap(DodgeballPlayer2Actions set) { return set.Get(); }
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
         /// <summary>
         /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
         /// </summary>
@@ -654,20 +584,17 @@ public partial class @DodgeballInputs: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
         /// </remarks>
-        /// <seealso cref="DodgeballPlayer2Actions" />
-        public void AddCallbacks(IDodgeballPlayer2Actions instance)
+        /// <seealso cref="UIActions" />
+        public void AddCallbacks(IUIActions instance)
         {
-            if (instance == null || m_Wrapper.m_DodgeballPlayer2ActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_DodgeballPlayer2ActionsCallbackInterfaces.Add(instance);
-            @Move.started += instance.OnMove;
-            @Move.performed += instance.OnMove;
-            @Move.canceled += instance.OnMove;
-            @Jump.started += instance.OnJump;
-            @Jump.performed += instance.OnJump;
-            @Jump.canceled += instance.OnJump;
-            @Throw.started += instance.OnThrow;
-            @Throw.performed += instance.OnThrow;
-            @Throw.canceled += instance.OnThrow;
+            if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
+            @Navigate.started += instance.OnNavigate;
+            @Navigate.performed += instance.OnNavigate;
+            @Navigate.canceled += instance.OnNavigate;
+            @Confirm.started += instance.OnConfirm;
+            @Confirm.performed += instance.OnConfirm;
+            @Confirm.canceled += instance.OnConfirm;
         }
 
         /// <summary>
@@ -676,27 +603,24 @@ public partial class @DodgeballInputs: IInputActionCollection2, IDisposable
         /// <remarks>
         /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
         /// </remarks>
-        /// <seealso cref="DodgeballPlayer2Actions" />
-        private void UnregisterCallbacks(IDodgeballPlayer2Actions instance)
+        /// <seealso cref="UIActions" />
+        private void UnregisterCallbacks(IUIActions instance)
         {
-            @Move.started -= instance.OnMove;
-            @Move.performed -= instance.OnMove;
-            @Move.canceled -= instance.OnMove;
-            @Jump.started -= instance.OnJump;
-            @Jump.performed -= instance.OnJump;
-            @Jump.canceled -= instance.OnJump;
-            @Throw.started -= instance.OnThrow;
-            @Throw.performed -= instance.OnThrow;
-            @Throw.canceled -= instance.OnThrow;
+            @Navigate.started -= instance.OnNavigate;
+            @Navigate.performed -= instance.OnNavigate;
+            @Navigate.canceled -= instance.OnNavigate;
+            @Confirm.started -= instance.OnConfirm;
+            @Confirm.performed -= instance.OnConfirm;
+            @Confirm.canceled -= instance.OnConfirm;
         }
 
         /// <summary>
-        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="DodgeballPlayer2Actions.UnregisterCallbacks(IDodgeballPlayer2Actions)" />.
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="UIActions.UnregisterCallbacks(IUIActions)" />.
         /// </summary>
-        /// <seealso cref="DodgeballPlayer2Actions.UnregisterCallbacks(IDodgeballPlayer2Actions)" />
-        public void RemoveCallbacks(IDodgeballPlayer2Actions instance)
+        /// <seealso cref="UIActions.UnregisterCallbacks(IUIActions)" />
+        public void RemoveCallbacks(IUIActions instance)
         {
-            if (m_Wrapper.m_DodgeballPlayer2ActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
@@ -706,21 +630,21 @@ public partial class @DodgeballInputs: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
         /// </remarks>
-        /// <seealso cref="DodgeballPlayer2Actions.AddCallbacks(IDodgeballPlayer2Actions)" />
-        /// <seealso cref="DodgeballPlayer2Actions.RemoveCallbacks(IDodgeballPlayer2Actions)" />
-        /// <seealso cref="DodgeballPlayer2Actions.UnregisterCallbacks(IDodgeballPlayer2Actions)" />
-        public void SetCallbacks(IDodgeballPlayer2Actions instance)
+        /// <seealso cref="UIActions.AddCallbacks(IUIActions)" />
+        /// <seealso cref="UIActions.RemoveCallbacks(IUIActions)" />
+        /// <seealso cref="UIActions.UnregisterCallbacks(IUIActions)" />
+        public void SetCallbacks(IUIActions instance)
         {
-            foreach (var item in m_Wrapper.m_DodgeballPlayer2ActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_DodgeballPlayer2ActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
     /// <summary>
-    /// Provides a new <see cref="DodgeballPlayer2Actions" /> instance referencing this action map.
+    /// Provides a new <see cref="UIActions" /> instance referencing this action map.
     /// </summary>
-    public DodgeballPlayer2Actions @DodgeballPlayer2 => new DodgeballPlayer2Actions(this);
+    public UIActions @UI => new UIActions(this);
     private int m_DodgeballControllSchemeSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -735,11 +659,11 @@ public partial class @DodgeballInputs: IInputActionCollection2, IDisposable
         }
     }
     /// <summary>
-    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "DodgeballPlayer1" which allows adding and removing callbacks.
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "DodgeballPlayer" which allows adding and removing callbacks.
     /// </summary>
-    /// <seealso cref="DodgeballPlayer1Actions.AddCallbacks(IDodgeballPlayer1Actions)" />
-    /// <seealso cref="DodgeballPlayer1Actions.RemoveCallbacks(IDodgeballPlayer1Actions)" />
-    public interface IDodgeballPlayer1Actions
+    /// <seealso cref="DodgeballPlayerActions.AddCallbacks(IDodgeballPlayerActions)" />
+    /// <seealso cref="DodgeballPlayerActions.RemoveCallbacks(IDodgeballPlayerActions)" />
+    public interface IDodgeballPlayerActions
     {
         /// <summary>
         /// Method invoked when associated input action "Move" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
@@ -764,32 +688,25 @@ public partial class @DodgeballInputs: IInputActionCollection2, IDisposable
         void OnThrow(InputAction.CallbackContext context);
     }
     /// <summary>
-    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "DodgeballPlayer2" which allows adding and removing callbacks.
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
     /// </summary>
-    /// <seealso cref="DodgeballPlayer2Actions.AddCallbacks(IDodgeballPlayer2Actions)" />
-    /// <seealso cref="DodgeballPlayer2Actions.RemoveCallbacks(IDodgeballPlayer2Actions)" />
-    public interface IDodgeballPlayer2Actions
+    /// <seealso cref="UIActions.AddCallbacks(IUIActions)" />
+    /// <seealso cref="UIActions.RemoveCallbacks(IUIActions)" />
+    public interface IUIActions
     {
         /// <summary>
-        /// Method invoked when associated input action "Move" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Navigate" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnMove(InputAction.CallbackContext context);
+        void OnNavigate(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Jump" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Confirm" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnJump(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Throw" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnThrow(InputAction.CallbackContext context);
+        void OnConfirm(InputAction.CallbackContext context);
     }
 }

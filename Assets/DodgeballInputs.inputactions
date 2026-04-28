@@ -3,7 +3,7 @@
     "name": "DodgeballInputs",
     "maps": [
         {
-            "name": "DodgeballPlayer1",
+            "name": "DodgeballPlayer",
             "id": "73c5e64d-f362-4147-a4af-e932324f646e",
             "actions": [
                 {
@@ -148,31 +148,22 @@
             ]
         },
         {
-            "name": "DodgeballPlayer2",
-            "id": "e5d6d299-55f4-4fcb-a6cf-5e781e6df63e",
+            "name": "UI",
+            "id": "eed7c0bb-270b-41a8-80e4-2d5619caee4b",
             "actions": [
                 {
-                    "name": "Move",
+                    "name": "Navigate",
                     "type": "Value",
-                    "id": "cba548fb-3543-4397-babf-a010b8428326",
-                    "expectedControlType": "Vector2",
+                    "id": "5e907e74-5131-4d1a-91aa-cb29257b703b",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Jump",
+                    "name": "Confirm",
                     "type": "Button",
-                    "id": "e1262077-d225-4f50-bb4e-97b74cdb63eb",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Throw",
-                    "type": "Button",
-                    "id": "773bdb40-ae42-4e42-905b-03a3f48e14fe",
+                    "id": "ca604788-9b73-429c-a587-10142015465b",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -182,111 +173,56 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "3973afe1-1de6-4780-a162-3f8d6cb9c195",
+                    "id": "9f60d7bc-f4e8-44a7-bfb4-07117aceaaf8",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": ";DodgeballControllScheme",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "WASD",
-                    "id": "8b85bc00-1d19-435b-bc02-568e798b5da0",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "cc4f72a8-e627-43b1-aad6-cdb06b94a139",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";DodgeballControllScheme",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "a5ce9520-2bf8-4dca-a4fa-5a4e4b5233b3",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";DodgeballControllScheme",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "401a8cb6-f64f-4223-8111-a78b71c6ff12",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";DodgeballControllScheme",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "ad119d81-6aef-4a04-89bd-2a6c9f6dd1a6",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";DodgeballControllScheme",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "994e73a0-6987-49b8-a025-f597afc422af",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";DodgeballControllScheme",
-                    "action": "Jump",
+                    "action": "Navigate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "4ae97a0a-bb88-49d1-9d24-ff8d17f0cb80",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";DodgeballControllScheme",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "30bb055b-f7da-49c2-a6b0-7e85a64c7503",
+                    "id": "df38aa67-4482-4170-8b77-61cbb9e55b60",
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";DodgeballControllScheme",
-                    "action": "Throw",
+                    "groups": "",
+                    "action": "Confirm",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "ea88540d-2f58-4309-aed5-07e880039630",
-                    "path": "<Keyboard>/e",
+                    "id": "85139a2c-d159-4169-bbc0-f632f8a18e10",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";DodgeballControllScheme",
-                    "action": "Throw",
+                    "groups": "",
+                    "action": "Confirm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a368aaef-fe2e-473b-960f-bf3350a72371",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Confirm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f3d04e84-2406-4a70-8513-1dc272d565ba",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Confirm",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

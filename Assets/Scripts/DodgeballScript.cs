@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Scripting.APIUpdating;
 
 
 public class DodgeballScript : MonoBehaviour
@@ -9,18 +10,28 @@ public class DodgeballScript : MonoBehaviour
     public string originPlayer = "";
     public float bounce = .07f;
 
-
     private Rigidbody2D rb;
     private CircleCollider2D circle;
     private float radius;
 
+    //Animation Polish
+    private Animator anim;
+    private float movingAng;
+    private Vector2 dirVec;
+    private float totalSpeed;
 
     private void Awake()
     {
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         circle = GetComponent<CircleCollider2D>();
 
         radius = circle.radius * Mathf.Max(transform.localScale.x, transform.localScale.y);
+    }
+
+    private void Update()
+    {
+        Animate();
     }
 
     //Reset to "not live" and remove any "origin player" when im thrown
@@ -45,6 +56,8 @@ public class DodgeballScript : MonoBehaviour
             {
                 StartCoroutine(vertBounce(rbVelo));
             }
+
+            anim.SetBool("landed", true);
         }
     }
 
@@ -59,5 +72,20 @@ public class DodgeballScript : MonoBehaviour
         Debug.Log("start vert bounce");
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, bounceVelo.y * bounce);
         yield return new WaitForSeconds(0.1f);
+        anim.SetBool("landed", false);
+    }
+
+    private void Animate()
+    {
+        totalSpeed = rb.linearVelocity.magnitude;
+        dirVec = rb.linearVelocity;
+                        
+        movingAng = Mathf.Atan2(dirVec.y, dirVec.x) * Mathf.Rad2Deg;
+        if(totalSpeed > 10)
+        {
+            transform.eulerAngles = new Vector3(0, 0, movingAng - 90f);
+        }
+
+        anim.SetFloat("speed", Mathf.Abs(totalSpeed));
     }
 }

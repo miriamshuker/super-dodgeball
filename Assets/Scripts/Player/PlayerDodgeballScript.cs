@@ -74,7 +74,7 @@ public class PlayerDodgeballScript : MonoBehaviour
             else if (!_hitDodgeBallScript._isLive && !holdingDodgeball)
             {
                 Destroy(hitDodgeball);
-                Debug.Log("Pick up Dodgeball"); 
+                //Debug.Log("Pick up Dodgeball"); 
                 heldDodgeballAsset.SetActive(true);
                 holdingDodgeball = true;
             }

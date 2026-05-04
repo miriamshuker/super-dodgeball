@@ -19,7 +19,7 @@ MonoBehaviour:
   AirDeceleration: 10
   GroundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 320
   GroundDetectionRayLength: 0.02
   HeadDetectionRayLength: 0.02
   HeadWidth: 0.75

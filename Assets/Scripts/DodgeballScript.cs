@@ -31,6 +31,7 @@ public class DodgeballScript : MonoBehaviour
     {
         //Debug.Log("hit something: " + col.gameObject.name + " tag: " + col.gameObject.tag);
         //Debug.Log("parent" + col.transform.parent.gameObject.name);
+        anim.SetBool("inAir", false);
 
         Vector2 rbVelo = col.relativeVelocity;
         //Debug.Log("relative velo= " + rbVelo);
@@ -105,6 +106,10 @@ public class DodgeballScript : MonoBehaviour
             originPlayer = "";
             break;
         }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        anim.SetBool("inAir", true);   
     }
     private void Animate()
     {

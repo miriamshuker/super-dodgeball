@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerHealthScript : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class PlayerHealthScript : MonoBehaviour
     public int maxLives = 5;
     public int currentLives = 5;
     public GameObject myHealthUIPrefab;
+    private GameObject myHealthContainer;
     public GameObject myLOSSPrefab;
     private GameObject myHealthUI;
     private GameObject roundManager;
@@ -16,6 +18,7 @@ public class PlayerHealthScript : MonoBehaviour
     {
         myHealthUI = Instantiate(myHealthUIPrefab);
         myHealthUI.transform.SetParent(GameObject.Find("Canvas").transform, false);
+        myHealthContainer = myHealthUI.GetComponentInChildren<HorizontalLayoutGroup>().gameObject;
         roundManager = GameObject.Find("RoundManager");
     }
 
@@ -29,7 +32,7 @@ public class PlayerHealthScript : MonoBehaviour
     {
         if(currentLives > 0)
         {
-            myHealthUI.transform.GetChild(currentLives-1).gameObject.SetActive(false);  
+            myHealthContainer.transform.GetChild(currentLives-1).gameObject.SetActive(false);
             currentLives -= 1;
             if(currentLives <= 0)
             {

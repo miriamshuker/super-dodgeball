@@ -47,5 +47,8 @@ TagManager:
   - name: HeldDodgeball
     uniqueID: 3958855651
     locked: 0
+  - name: UI
+    uniqueID: 72741025
+    locked: 0
   m_RenderingLayers:
   - Default

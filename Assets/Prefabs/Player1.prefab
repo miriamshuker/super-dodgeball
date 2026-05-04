@@ -664,7 +664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealthScript
   maxLives: 5
   currentLives: 5
-  myHealthUIPrefab: {fileID: 1833337133192983239, guid: 63427a6bc1a76a34a9d13f632c12adbd, type: 3}
+  myHealthUIPrefab: {fileID: 2105742704106850492, guid: 728102e1c2b8d1e4489dafba7d76683c, type: 3}
   myLOSSPrefab: {fileID: 4466516371970455761, guid: f8328922ed0d9254aa96af3dabc9a2ce, type: 3}
 --- !u!1 &9035591307463627622
 GameObject:

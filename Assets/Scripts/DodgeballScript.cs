@@ -7,6 +7,7 @@ public class DodgeballScript : MonoBehaviour
     public bool _isLive = false;
     public string originPlayer = "";
     public float bounce = .07f;
+    public float playerBounceScale = 7f;
     private Rigidbody2D rb;
     private CircleCollider2D circle;
     private float radius;
@@ -29,6 +30,7 @@ public class DodgeballScript : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         //Debug.Log("hit something: " + col.gameObject.name + " tag: " + col.gameObject.tag);
+        //Debug.Log("parent" + col.transform.parent.gameObject.name);
 
         Vector2 rbVelo = col.relativeVelocity;
         //Debug.Log("relative velo= " + rbVelo);
@@ -60,7 +62,16 @@ public class DodgeballScript : MonoBehaviour
         }
         if (col.gameObject.CompareTag("Player") && col.gameObject.name != originPlayer)
         {
-            StartCoroutine(playerBounce(rbVelo));
+            if (_isLive)
+            {
+                playerBounce(rbVelo);
+                _isLive = false;
+                originPlayer = "";
+            }
+            else
+            {
+                Physics2D.IgnoreCollision(circle, col.collider, true);
+            }
         }
     }
     private IEnumerator horiBounce(Vector2 bounceVelo)
@@ -77,10 +88,23 @@ public class DodgeballScript : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         anim.SetBool("landed", false);
     }
-    private IEnumerator playerBounce(Vector2 bounceVelo)
+    private void playerBounce(Vector2 bounceVelo)
     {
-        Debug.Log("player bounce");
-        yield return new WaitForSeconds(0.1f);
+        foreach (Collider2D col in Physics2D.OverlapCircleAll(transform.position, radius))
+        {
+            if (!col.CompareTag("Player") || col.gameObject.name == originPlayer) continue;
+
+            Rigidbody2D playerRb = col.GetComponent<Rigidbody2D>();
+            if (playerRb == null) continue;
+
+            Vector2 bounceDirection = (col.transform.position - transform.position).normalized;
+            rb.linearVelocity = -bounceDirection * bounceVelo.magnitude * bounce;
+            playerRb.AddForce(bounceDirection * bounceVelo.magnitude * playerBounceScale, ForceMode2D.Impulse);
+            Debug.Log("bounce player");
+            _isLive = true;
+            originPlayer = "";
+            break;
+        }
     }
     private void Animate()
     {

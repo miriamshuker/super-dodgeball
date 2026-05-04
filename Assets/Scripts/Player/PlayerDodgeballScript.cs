@@ -12,6 +12,8 @@ public class PlayerDodgeballScript : MonoBehaviour
     public GameObject dodgeballPrefab;
     public PlayerMovement playerMovement;
     private PlayerHealthScript myHealthScript;
+    [SerializeField] private CapsuleCollider2D bounceCollider;
+
     private bool holdingDodgeball = false;
     private float timeSpentAiming = 0f;
     private float maxAimingTime = 5f;
@@ -62,13 +64,13 @@ public class PlayerDodgeballScript : MonoBehaviour
 
             if (_hitDodgeBallScript._isLive && (_hitDodgeBallScript.originPlayer != this.name))
             {
-                Debug.Log("OUCH");
+                //Debug.Log("OUCH");
                 myHealthScript.HealthLoss();
 
                 
                 //LOSE HEALTH AND REFLECT DODGEBALL 
-                _hitDodgeBallScript._isLive = false;
-                _hitDodgeBallScript.originPlayer = "";
+                //_hitDodgeBallScript._isLive = false;
+                //_hitDodgeBallScript.originPlayer = "";
             }
 
             else if (!_hitDodgeBallScript._isLive && !holdingDodgeball)
@@ -116,24 +118,28 @@ public class PlayerDodgeballScript : MonoBehaviour
 
         //Instantiate dodgeball and throw it at an angle
         GameObject dodgeballInst = Instantiate(dodgeballPrefab, transform.position, transform.rotation);
-            
+
         DodgeballScript thrownDodgeballScript = dodgeballInst.GetComponent<DodgeballScript>();
         thrownDodgeballScript.originPlayer = this.name;
         thrownDodgeballScript._isLive = true;
+
+        CircleCollider2D ballCollider = dodgeballInst.GetComponent<CircleCollider2D>();
+        Physics2D.IgnoreCollision(bounceCollider, ballCollider, true);
         //dodgeballInst.transform.eulerAngles = Vector3.forward * aimAngle;
         //dodgeballInst.GetComponent<Rigidbody2D>().linearVelocity = (myInputManager.Movement * (firingSpeed/10) * (1f + timeSpentAiming));
-        if(myInputManager.Movement == new Vector2(0f, 0f))
+        if (myInputManager.Movement == new Vector2(0f, 0f))
         {
             dodgeballInst.GetComponent<Rigidbody2D>().AddForce(transform.right * firingSpeed * (1f + timeSpentAiming));
         }
         else
-        { 
+        {
             dodgeballInst.GetComponent<Rigidbody2D>().AddForce(myInputManager.Movement * firingSpeed * (1f + timeSpentAiming));
         }
         //dodgeballInst.GetComponent<Rigidbody2D>().AddForce(myInputManager.Movement * firingSpeed * (1f + timeSpentAiming));
         timeSpentAiming = 0f;
-        
+
     }
+
     #endregion
 
     #region Timer

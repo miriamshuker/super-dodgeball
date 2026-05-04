@@ -613,6 +613,7 @@ MonoBehaviour:
   heldDodgeballAsset: {fileID: 5350747687531439536}
   dodgeballPrefab: {fileID: 6424567767784422375, guid: e2b8d3291d5831a468ed686807278f87, type: 3}
   playerMovement: {fileID: 3959762758860215480}
+  bounceCollider: {fileID: 68099184950023234}
   aim: {fileID: 0}
   firingSpeed: 1600
 --- !u!95 &4150001798148268052

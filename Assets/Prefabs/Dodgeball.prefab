@@ -281,6 +281,7 @@ MonoBehaviour:
   _isLive: 1
   originPlayer: 
   bounce: 0.7
+  playerBounceScale: 100
 --- !u!114 &-2349014139035386812
 MonoBehaviour:
   m_ObjectHideFlags: 0

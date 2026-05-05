@@ -21,7 +21,6 @@ public class RoundManagerScript : MonoBehaviour
     public GameObject p2WinsUI;
     public GameObject nextRoundUI;
 
-
     [Header("List of Scene Names")]
     public List<string> sceneNames;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

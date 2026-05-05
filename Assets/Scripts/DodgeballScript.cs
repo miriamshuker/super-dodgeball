@@ -109,7 +109,7 @@ public class DodgeballScript : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        anim.SetBool("inAir", true);   
+        anim.SetBool("inAir", true);
     }
     private void Animate()
     {

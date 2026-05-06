@@ -37,6 +37,8 @@ public class RoundManagerScript : MonoBehaviour
     [SerializeField] HealthUIManager healthUIManager;
     [SerializeField] RoundWinUIManager p1RoundWinUIManager, p2RoundWinUIManager;
 
+    private Animator rm_Anim;
+
     [Header("Round Data")]
     public DodgeballInputs _input;
 
@@ -66,6 +68,7 @@ public class RoundManagerScript : MonoBehaviour
         _input.DodgeballPlayer.Disable();
         _input.UI.Enable();
 
+        rm_Anim = GetComponent<Animator>();
         StateManager(GameState.menu);
     }
 
@@ -144,11 +147,11 @@ public class RoundManagerScript : MonoBehaviour
     private IEnumerator RoundWin()
     {
         ClearUI();
+        rWinUI.SetActive(true);
+        rm_Anim.Play("Round_WinUI_Open");
+        yield return  new WaitForSeconds(1.5f);
         p1RoundWinUIManager.CheckIfIWon(lastPlayerWin, 1);
         p2RoundWinUIManager.CheckIfIWon(lastPlayerWin, 2);
-        rWinUI.SetActive(true);
-        yield return new WaitForSeconds(1);
-        StartGame();
     }   
 
     private IEnumerator GameWin()

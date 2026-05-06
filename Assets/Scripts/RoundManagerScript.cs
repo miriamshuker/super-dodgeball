@@ -36,6 +36,9 @@ public class RoundManagerScript : MonoBehaviour
     [Header("Refs")]
     [SerializeField] HealthUIManager healthUIManager;
     [SerializeField] RoundWinUIManager p1RoundWinUIManager, p2RoundWinUIManager;
+    
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip deathSound;
 
     private Animator rm_Anim;
 
@@ -194,13 +197,19 @@ public class RoundManagerScript : MonoBehaviour
         if(player == "Player1")
         {
             p1CurrHealth--;
-            if(p1CurrHealth == 0) UpdatePlayerPoints(player);
+            if(p1CurrHealth == 0){
+                audioSource.PlayOneShot(deathSound);
+                UpdatePlayerPoints(player);
+            }
             healthUIManager.UpdatePlayerHealthUI(player, p1CurrHealth);
         }
         if(player == "Player2")
         {
             p2CurrHealth--;
-            if(p2CurrHealth == 0) UpdatePlayerPoints(player);
+            if(p2CurrHealth == 0){
+                audioSource.PlayOneShot(deathSound);
+                UpdatePlayerPoints(player);
+            }
             healthUIManager.UpdatePlayerHealthUI(player, p2CurrHealth);
         }
     }

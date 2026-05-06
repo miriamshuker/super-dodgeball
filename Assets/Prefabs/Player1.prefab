@@ -388,6 +388,7 @@ GameObject:
   - component: {fileID: 3959762758860215480}
   - component: {fileID: 7560747055679514588}
   - component: {fileID: 2142699754516304777}
+  - component: {fileID: 1592551811037092664}
   - component: {fileID: 9068809417290037970}
   - component: {fileID: 4150001798148268052}
   - component: {fileID: 3704368151357101277}
@@ -565,6 +566,9 @@ MonoBehaviour:
   _feetCollider: {fileID: 4863759163814081374}
   _bodyCollider: {fileID: 6990147292503782280}
   anim: {fileID: 0}
+  audioSource: {fileID: 1592551811037092664}
+  jumpSound: {fileID: 8300000, guid: b5f9ca11342e948779228ef4a9346a2d, type: 3}
+  landSound: {fileID: 8300000, guid: efc67dea7e2da4f258c7a51b18dcce92, type: 3}
   _isAiming: 0
 --- !u!114 &7560747055679514588
 MonoBehaviour:
@@ -700,6 +704,103 @@ MonoBehaviour:
   ThrowWasPressed: 0
   ThrowIsHeld: 0
   ThrowWasReleased: 0
+--- !u!82 &1592551811037092664
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9003035189737324132}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &9068809417290037970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -717,6 +818,9 @@ MonoBehaviour:
   dodgeballPrefab: {fileID: 6424567767784422375, guid: e2b8d3291d5831a468ed686807278f87, type: 3}
   playerMovement: {fileID: 3959762758860215480}
   bounceCollider: {fileID: 5527850780401229029}
+  audioSource: {fileID: 1592551811037092664}
+  throwSound: {fileID: 8300000, guid: 54a5deeb81d7d493dacca22dd04bfe6a, type: 3}
+  hitSound: {fileID: 8300000, guid: fbd6bcff8397b47aca9e6e303bd8f4d7, type: 3}
   aim: {fileID: 0}
   firingSpeed: 1600
 --- !u!95 &4150001798148268052

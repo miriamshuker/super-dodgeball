@@ -16,6 +16,11 @@ public class DodgeballScript : MonoBehaviour
     private float movingAng;
     private Vector2 dirVec;
     private float totalSpeed;
+
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip bounceSound;
+    [SerializeField] private float maxBounceSpeed = 20f;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -33,7 +38,15 @@ public class DodgeballScript : MonoBehaviour
         //Debug.Log("parent" + col.transform.parent.gameObject.name);
         anim.SetBool("inAir", false);
 
+        audioSource.pitch = Random.Range(.8f, 1.2f);
+
         Vector2 rbVelo = col.relativeVelocity;
+
+        Debug.Log(rbVelo.magnitude);
+
+        float volumeScale = Mathf.Clamp(rbVelo.magnitude / maxBounceSpeed, 0f,1f);
+        audioSource.PlayOneShot(bounceSound, volumeScale);
+        
         //Debug.Log("relative velo= " + rbVelo);
         if (col.gameObject.CompareTag("Terrain"))
         {

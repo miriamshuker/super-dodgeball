@@ -13,6 +13,10 @@ public class PlayerDodgeballScript : MonoBehaviour
     public PlayerMovement playerMovement;
     [SerializeField] private CapsuleCollider2D bounceCollider;
 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip throwSound;
+    [SerializeField] private AudioClip hitSound;
+
     private bool holdingDodgeball = false;
     private float timeSpentAiming = 0f;
     private float maxAimingTime = 5f;
@@ -62,6 +66,8 @@ public class PlayerDodgeballScript : MonoBehaviour
 
             if (_hitDodgeBallScript._isLive && (_hitDodgeBallScript.originPlayer != this.name))
             {
+                audioSource.pitch = Random.Range(.8f, 1.2f);
+                audioSource.PlayOneShot(hitSound);
                 //Debug.Log("OUCH");
                 RoundManagerScript.Instance.PlayerDamaged(this.name);
                 
@@ -124,6 +130,9 @@ public class PlayerDodgeballScript : MonoBehaviour
         Physics2D.IgnoreCollision(bounceCollider, ballCollider, true);
         //dodgeballInst.transform.eulerAngles = Vector3.forward * aimAngle;
         //dodgeballInst.GetComponent<Rigidbody2D>().linearVelocity = (myInputManager.Movement * (firingSpeed/10) * (1f + timeSpentAiming));
+        audioSource.pitch = Random.Range(.8f, 1.2f);
+        audioSource.PlayOneShot(throwSound);
+
         if (myInputManager.Movement == new Vector2(0f, 0f))
         {
             dodgeballInst.GetComponent<Rigidbody2D>().AddForce(transform.right * firingSpeed * (1f + timeSpentAiming));

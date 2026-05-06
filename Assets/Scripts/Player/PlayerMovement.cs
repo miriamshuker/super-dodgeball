@@ -11,6 +11,10 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Animator anim;
 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip landSound;
+
     private Rigidbody2D _rb;
 
     //movement variables
@@ -240,6 +244,9 @@ public class PlayerMovement : MonoBehaviour
             _isPastApexThreshold = false;
             _numberOfJumpsUsed = 0;
 
+            audioSource.pitch = Random.Range(0.8f, 1.2f);
+            audioSource.PlayOneShot(landSound, 0.1f);
+
             VerticalVelocity = Physics2D.gravity.y;
         }
         
@@ -254,6 +261,8 @@ public class PlayerMovement : MonoBehaviour
 
         _jumpBufferTimer = 0f;
         _numberOfJumpsUsed += numberOfJumpsUsed;
+        audioSource.pitch = Random.Range(.8f, 1.2f);
+        audioSource.PlayOneShot(jumpSound, .4f);
         VerticalVelocity = MoveStats.InitialJumpVelocity;
     }
 

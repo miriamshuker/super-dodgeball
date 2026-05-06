@@ -2,77 +2,31 @@ using UnityEngine;
 
 public class RoundWinUIManager : MonoBehaviour
 {
-    [SerializeField] int player;
-    private int myWins;
+    [SerializeField] string me;
 
-    private RoundManagerScript _roundManager;
     [SerializeField] GameObject[] roundWinObjs;
 
-    private void Awake()
-    {
-        _roundManager = FindAnyObjectByType<RoundManagerScript>();
-    }
+    private int myWins = 0;
 
-    private void Start()
+    public void SetupRoundUI()
     {
-        if(_roundManager != null)
+        for (int  i = 0; i < RoundManagerScript.Instance.pointsToWin; i++)
         {
-            CheckWins();
-
-            for (int  i = 0; i < _roundManager.pointsToWin; i++)
-            {
-                roundWinObjs[i].gameObject.SetActive(true);
-            }
-
-            SetUI();
+            roundWinObjs[i].gameObject.SetActive(true);
         }
     }
 
-    private void Update()
+    public void SetWins()
     {
-        if (_roundManager != null)
-        {
-            CheckWins();
-        }
+        myWins = 0;
     }
 
-    private void CheckWins()
+    public void CheckIfIWon(string lastPlayerWin, int p)
     {
-        if (player == 1)
+        if(lastPlayerWin == me)
         {
-            myWins = _roundManager.p1_wins;
-        }
-        else if (player == 2)
-        {
-            myWins = _roundManager.p2_wins;
-        }
-    }
-
-    private void LateUpdate()
-    {
-        if (player == 1 && myWins != _roundManager.p1_wins)
-        {
-            UpdateUI(myWins, player);
-        }
-        else if (player == 2 && myWins != _roundManager.p2_wins)
-        {
-            UpdateUI(myWins, player);
-        }
-    }
-
-    private void SetUI()
-    {
-        for(int i = 0; i < myWins; i++)
-        {
-            roundWinObjs[i].GetComponentInChildren<Animator>().Play("Indicator_Full");
-        }
-    }
-
-    private void UpdateUI(int wins, int player)
-    {
-        if (player == this.player)
-        {
-            roundWinObjs[wins].GetComponentInChildren<Animator>().Play("Indicator_RoundWin");
+            roundWinObjs[myWins].GetComponentInChildren<Animator>().Play("Indicator_RoundWin");
+            myWins++;
         }
     }
 }

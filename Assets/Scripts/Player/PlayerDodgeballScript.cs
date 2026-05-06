@@ -11,7 +11,6 @@ public class PlayerDodgeballScript : MonoBehaviour
     [SerializeField]
     public GameObject dodgeballPrefab;
     public PlayerMovement playerMovement;
-    private PlayerHealthScript myHealthScript;
     [SerializeField] private CapsuleCollider2D bounceCollider;
 
     private bool holdingDodgeball = false;
@@ -26,7 +25,6 @@ public class PlayerDodgeballScript : MonoBehaviour
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
-        myHealthScript = GetComponent<PlayerHealthScript>();
         heldDodgeballSpriteRenderer = heldDodgeballAsset.GetComponent<SpriteRenderer>();
         
         heldDodgeballAsset.SetActive(false);   
@@ -65,8 +63,7 @@ public class PlayerDodgeballScript : MonoBehaviour
             if (_hitDodgeBallScript._isLive && (_hitDodgeBallScript.originPlayer != this.name))
             {
                 //Debug.Log("OUCH");
-                myHealthScript.HealthLoss();
-
+                RoundManagerScript.Instance.PlayerDamaged(this.name);
                 
                 //LOSE HEALTH AND REFLECT DODGEBALL 
                 //_hitDodgeBallScript._isLive = false;

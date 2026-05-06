@@ -4,14 +4,14 @@ using UnityEngine.UI;
 
 public class PlayerHealthScript : MonoBehaviour
 {
-
+    /*
     public int maxLives = 5;
     public int currentLives = 5;
     public GameObject myHealthUIPrefab;
     private GameObject myHealthContainer;
     public GameObject myLOSSPrefab;
     private GameObject myHealthUI;
-    private GameObject roundManager;
+    private RoundManagerScript roundManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,15 +19,9 @@ public class PlayerHealthScript : MonoBehaviour
         myHealthUI = Instantiate(myHealthUIPrefab);
         myHealthUI.transform.SetParent(GameObject.Find("Canvas").transform, false);
         myHealthContainer = myHealthUI.GetComponentInChildren<HorizontalLayoutGroup>().gameObject;
-        roundManager = GameObject.Find("RoundManager");
+        roundManager = RoundManagerScript.Instance;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
     public void HealthLoss()
     {
         if(currentLives > 0)
@@ -36,13 +30,14 @@ public class PlayerHealthScript : MonoBehaviour
             currentLives -= 1;
             if(currentLives <= 0)
             {
-                Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-                StartCoroutine(NextRoundCoroutine());
+                Debug.Log("I lost!");
+                roundManager.UpdatePlayerPoints(this.name);
             }
         }
     }
+*/
 
-    public IEnumerator NextRoundCoroutine()
+/*    public IEnumerator NextRoundCoroutine()
     {
         Debug.Log("EEEEEEEEEEEEEEEEEEEEEEEEEE");
         GameObject loseUI = Instantiate(myLOSSPrefab);
@@ -56,10 +51,10 @@ public class PlayerHealthScript : MonoBehaviour
 
         if (this.name == "Player1")
         {
-            roundManager.GetComponent<RoundManagerScript>().UpdateP2Points(1);
+            //roundManager.GetComponent<RoundManagerScript>().UpdateP2Points(1);
         }else if (this.name == "Player2")
         {
-            roundManager.GetComponent<RoundManagerScript>().UpdateP1Points(1);
+            //roundManager.GetComponent<RoundManagerScript>().UpdateP1Points(1);
         }
-    }
+    }*/
 }

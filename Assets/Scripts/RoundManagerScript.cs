@@ -170,8 +170,20 @@ public class RoundManagerScript : MonoBehaviour
     private IEnumerator SetPlayerHealth()
     {
         yield return StartCoroutine(healthUIManager.RoundStartUISetup());
-        p1CurrHealth = playerStartHealth;
-        p2CurrHealth = playerStartHealth;
+        if(lastPlayerWin == "Player1")
+        {
+            p2CurrHealth = playerStartHealth;
+        }
+        else if (lastPlayerWin == "Player2")
+        {
+            p1CurrHealth = playerStartHealth;
+        }
+        else
+        {
+            p1CurrHealth = playerStartHealth;
+            p2CurrHealth = playerStartHealth;
+        }
+
     }
 
     private void ClearUI()

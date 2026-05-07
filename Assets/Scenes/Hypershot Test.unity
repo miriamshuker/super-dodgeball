@@ -1137,7 +1137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &80002239
 Transform:
   m_ObjectHideFlags: 0
@@ -2644,7 +2644,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &198645463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2659,10 +2659,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   spawnPoints:
   - {fileID: 2034722969}
-  - {fileID: 1603424826}
-  - {fileID: 428285986}
-  - {fileID: 536716260}
-  - {fileID: 413649539}
   dodgeballPrefab: {fileID: 6424567767784422375, guid: e2b8d3291d5831a468ed686807278f87, type: 3}
   spawnInterval: 5
 --- !u!4 &198645464
@@ -2677,7 +2673,8 @@ Transform:
   m_LocalPosition: {x: 722.2209, y: 503.9261, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2034722970}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &397910855
@@ -2756,68 +2753,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397910855}
   m_CullTransparentMesh: 1
---- !u!1 &413649539
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 413649540}
-  m_Layer: 0
-  m_Name: dodgeballSPAWN (4)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &413649540
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413649539}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 164.7, y: 135.1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &428285986
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 428285987}
-  m_Layer: 0
-  m_Name: dodgeballSPAWN (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &428285987
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 428285986}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 79.9, y: 58.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &448886621
 GameObject:
   m_ObjectHideFlags: 0
@@ -2980,37 +2915,6 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -107.3, y: 36.8, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &536716260
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 536716261}
-  m_Layer: 0
-  m_Name: dodgeballSPAWN (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &536716261
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 536716260}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -182.2, y: 136.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3421,22 +3325,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6920662461750982976, guid: 47a583aeb140b33418b34da9e02b5c2e, type: 3}
-      propertyPath: m_NormalizedViewPortRect.x
-      value: 0.029761905
-      objectReference: {fileID: 0}
-    - target: {fileID: 6920662461750982976, guid: 47a583aeb140b33418b34da9e02b5c2e, type: 3}
-      propertyPath: m_NormalizedViewPortRect.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6920662461750982976, guid: 47a583aeb140b33418b34da9e02b5c2e, type: 3}
-      propertyPath: m_NormalizedViewPortRect.width
-      value: 0.94028723
-      objectReference: {fileID: 0}
-    - target: {fileID: 6920662461750982976, guid: 47a583aeb140b33418b34da9e02b5c2e, type: 3}
-      propertyPath: m_NormalizedViewPortRect.height
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3493,7 +3381,7 @@ Transform:
   - {fileID: 33327374}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1603424826
+--- !u!1 &1440119183
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3501,27 +3389,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1603424827}
+  - component: {fileID: 1440119185}
+  - component: {fileID: 1440119184}
   m_Layer: 0
-  m_Name: dodgeballSPAWN (1)
+  m_Name: ==== HyperSpawner =====
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1603424827
+--- !u!114 &1440119184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440119183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12edb2420a76baf49bf30f38220a3577, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HB_TriggerSpawner
+  spawnPoints: []
+  hyperTriggerPrefab: {fileID: 0}
+--- !u!4 &1440119185
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1603424826}
+  m_GameObject: {fileID: 1440119183}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.5, y: 105.7, z: 0}
+  m_LocalPosition: {x: 722.2209, y: 503.9261, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1638515831}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1621788960
@@ -3576,11 +3480,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dodgeball
       objectReference: {fileID: 0}
+    - target: {fileID: 6424567767784422375, guid: e2b8d3291d5831a468ed686807278f87, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b8d3291d5831a468ed686807278f87, type: 3}
+--- !u!1 &1638515830
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1638515831}
+  m_Layer: 0
+  m_Name: hyperSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1638515831
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638515830}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -699.3, y: -384.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1440119185}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1680151365
 GameObject:
   m_ObjectHideFlags: 0
@@ -3913,12 +3852,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2034722969}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -102.3, y: 31.8, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -824.5209, y: -472.1261, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 198645464}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2146292713
 GameObject:
@@ -3995,6 +3934,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146292713}
   m_CullTransparentMesh: 1
+--- !u!1001 &1115505572870137639
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1916237205910409558, guid: e7d0ae1bbd362a34eb661942e5bb0edf, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504087528399640759, guid: e7d0ae1bbd362a34eb661942e5bb0edf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -25.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504087528399640759, guid: e7d0ae1bbd362a34eb661942e5bb0edf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504087528399640759, guid: e7d0ae1bbd362a34eb661942e5bb0edf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504087528399640759, guid: e7d0ae1bbd362a34eb661942e5bb0edf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504087528399640759, guid: e7d0ae1bbd362a34eb661942e5bb0edf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504087528399640759, guid: e7d0ae1bbd362a34eb661942e5bb0edf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504087528399640759, guid: e7d0ae1bbd362a34eb661942e5bb0edf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504087528399640759, guid: e7d0ae1bbd362a34eb661942e5bb0edf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504087528399640759, guid: e7d0ae1bbd362a34eb661942e5bb0edf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504087528399640759, guid: e7d0ae1bbd362a34eb661942e5bb0edf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754976770900090022, guid: e7d0ae1bbd362a34eb661942e5bb0edf, type: 3}
+      propertyPath: hyperSpawner
+      value: 
+      objectReference: {fileID: 1440119184}
+    - target: {fileID: 4754976770900090022, guid: e7d0ae1bbd362a34eb661942e5bb0edf, type: 3}
+      propertyPath: telePoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754976770900090022, guid: e7d0ae1bbd362a34eb661942e5bb0edf, type: 3}
+      propertyPath: 'telePoints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1638515830}
+    - target: {fileID: 8329217331649575634, guid: e7d0ae1bbd362a34eb661942e5bb0edf, type: 3}
+      propertyPath: m_Name
+      value: Hyperball Trigger
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e7d0ae1bbd362a34eb661942e5bb0edf, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -4008,9 +4020,6 @@ SceneRoots:
   - {fileID: 928619755}
   - {fileID: 1779331243}
   - {fileID: 198645464}
-  - {fileID: 2034722970}
-  - {fileID: 1603424827}
-  - {fileID: 428285987}
-  - {fileID: 536716261}
-  - {fileID: 413649540}
   - {fileID: 1621788960}
+  - {fileID: 1440119185}
+  - {fileID: 1115505572870137639}

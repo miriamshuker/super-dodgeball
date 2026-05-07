@@ -42,8 +42,6 @@ public class DodgeballScript : MonoBehaviour
 
         Vector2 rbVelo = col.relativeVelocity;
 
-        Debug.Log(rbVelo.magnitude);
-
         float volumeScale = Mathf.Clamp(rbVelo.magnitude / maxBounceSpeed, 0f,1f);
         audioSource.PlayOneShot(bounceSound, volumeScale);
         

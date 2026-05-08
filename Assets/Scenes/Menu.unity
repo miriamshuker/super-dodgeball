@@ -641,6 +641,9 @@ MonoBehaviour:
   - Level_Base
   - SampleScene
   - Level_Towers
+  - Level_Pyramid
+  - Level_SuperFlat
+  - Level_TheCage
 --- !u!95 &560157573
 Animator:
   serializedVersion: 7

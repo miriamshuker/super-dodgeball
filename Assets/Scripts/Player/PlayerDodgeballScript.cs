@@ -20,9 +20,10 @@ public class PlayerDodgeballScript : MonoBehaviour
     public bool holdingDodgeball = false;
     private float timeSpentAiming = 0f;
     private float maxAimingTime = 5f;
-    public GameObject aim;
 
     public float firingSpeed = 160f;
+    
+    public GameObject aimIndicator;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -32,6 +33,7 @@ public class PlayerDodgeballScript : MonoBehaviour
         heldDodgeballSpriteRenderer = heldDodgeballAsset.GetComponent<SpriteRenderer>();
         
         heldDodgeballAsset.SetActive(false);   
+        aimIndicator.SetActive(false);
     }
 
     // Update is called once per frame
@@ -44,9 +46,41 @@ public class PlayerDodgeballScript : MonoBehaviour
 
         if (playerMovement._isAiming)
         {
+            
+            aimIndicator.SetActive(true);
             HoldingThrowTimer();
             lerpedColor = Color.Lerp(Color.red, Color.white, Mathf.PingPong(Time.time, (2/timeSpentAiming)));
             heldDodgeballSpriteRenderer.color = lerpedColor;
+
+            
+            if (myInputManager.Movement == new Vector2(0f, 0f))
+            {
+                aimIndicator.transform.eulerAngles = new Vector3(
+                        0f,
+                        playerMovement.transform.eulerAngles.y,
+                        0f
+                    );
+            }
+            else
+            {
+                if (playerMovement._isFacingRight)
+                {
+                    aimIndicator.transform.eulerAngles = new Vector3(
+                        0f,
+                        0f,
+                        Mathf.Atan2(myInputManager.Movement.y , myInputManager.Movement.x) * Mathf.Rad2Deg
+                    );
+                }
+                else
+                {
+                    aimIndicator.transform.eulerAngles = new Vector3(
+                        0f,
+                        0f,
+                        Mathf.Atan2(myInputManager.Movement.y , myInputManager.Movement.x) * Mathf.Rad2Deg
+                    );
+                }
+            }
+
             
 	        //aimAngle = Mathf.Atan2(myInputManager.Movement.y , myInputManager.Movement.x) * Mathf.Rad2Deg;
         }
@@ -111,8 +145,9 @@ public class PlayerDodgeballScript : MonoBehaviour
 
     private void Throw()
     {
-        Debug.Log("firing");
+        //Debug.Log("firing");
 
+        aimIndicator.SetActive(false);
         playerMovement._isAiming = false;
         heldDodgeballSpriteRenderer.color = Color.white;
         heldDodgeballAsset.SetActive(false);

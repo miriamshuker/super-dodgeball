@@ -5,24 +5,25 @@ public class HB_TriggerSpawner : MonoBehaviour
 {
     public List<GameObject> spawnPoints;
     public GameObject hyperTriggerPrefab;
-    private float spawnCountdown = 10f;
-    private bool hyperInPlay;
+    public float spawnCountdown = 10f;
+    public bool hyperInPlay;
 
     void Start()
     {
         hyperInPlay = false;
     }
 
-
     void Update()
     {
-        SpawnTimer();
+        if (!hyperInPlay)
+        {
+            SpawnTimer();
+        }
     }
-
 
     private void SpawnTimer()
     {
-        if (spawnCountdown > 0f && !hyperInPlay)
+        if (spawnCountdown > 0f)
         {
             spawnCountdown -= Time.deltaTime;
         }
@@ -31,6 +32,7 @@ public class HB_TriggerSpawner : MonoBehaviour
             SpawnHyper();
             hyperInPlay = true;
             spawnCountdown = 10f;
+            Debug.Log("hyper spawned");
         }
     }
 

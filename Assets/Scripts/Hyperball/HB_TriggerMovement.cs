@@ -17,21 +17,23 @@ public class HB_TriggerMovement : MonoBehaviour
     [Header("Timers")]
     public float MovementCountdown = 7f;
     public float DespawnCountdown = 23f;
-    public float ColorCountdown = 3f;
+    public float ColorCountdown = 3.5f;
 
     private SpriteRenderer spriteRend;
+    private bool isRed = true;
+
     void Start()
     {
         spriteRend = GetComponent<SpriteRenderer>();
         circ = GetComponent<CircleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
     }
-
-
+    
     void Update()
     {
         slideColor();
     }
+
 
     private void slideColor()
     {
@@ -41,8 +43,10 @@ public class HB_TriggerMovement : MonoBehaviour
         }
         else
         {
-            //spriteRend.color = (spriteRend.color = Color.red) ? Color.blue : Color.red;
-            ColorCountdown = 3f;
+            isRed = !isRed;
+            spriteRend.color = isRed ? Color.red : Color.blue;
+            ColorCountdown = 3.5f;
         }
     }
+    
 }

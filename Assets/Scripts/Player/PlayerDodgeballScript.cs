@@ -17,7 +17,7 @@ public class PlayerDodgeballScript : MonoBehaviour
     [SerializeField] private AudioClip throwSound;
     [SerializeField] private AudioClip hitSound;
 
-    private bool holdingDodgeball = false;
+    public bool holdingDodgeball = false;
     private float timeSpentAiming = 0f;
     private float maxAimingTime = 5f;
     public GameObject aim;

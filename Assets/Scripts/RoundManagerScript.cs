@@ -270,20 +270,6 @@ public class RoundManagerScript : MonoBehaviour
 
 #endregion
 
-#region Player Locking
-
-    public void LockSwitch()
-    {
-        PlayerMovement[] playerScripts = FindObjectsByType<PlayerMovement>(FindObjectsSortMode.None);
-
-        foreach(PlayerMovement player in playerScripts)
-        {
-            player.enabled = !player.enabled;
-        }
-    }
-
-#endregion
-
     //Commenting out old architecture
     /*public void UpdateP1Points(int point)
     {

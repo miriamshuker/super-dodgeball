@@ -13,6 +13,8 @@ public class DodgeballScript : MonoBehaviour
     private float radius;
     //Animation Polish
     private Animator anim;
+    [SerializeField] GameObject impact;
+    [SerializeField] GameObject impactSpawn;
     private float movingAng;
     private Vector2 dirVec;
     private float totalSpeed;
@@ -76,6 +78,7 @@ public class DodgeballScript : MonoBehaviour
         {
             if (_isLive)
             {
+                Instantiate(impact, impactSpawn.transform.position, transform.rotation * Quaternion.Euler(0,0,90));
                 playerBounce(rbVelo);
                 _isLive = false;
                 originPlayer = "";

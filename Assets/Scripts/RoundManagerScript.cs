@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using TMPro;
 
 public class RoundManagerScript : MonoBehaviour
 {
@@ -133,11 +134,13 @@ public class RoundManagerScript : MonoBehaviour
     private IEnumerator RoundStart()
     {
         ClearUI();
+        startUI.GetComponentInChildren<TextMeshProUGUI>().text = "";
         p1RoundWinUIManager.SetupRoundUI();
         p2RoundWinUIManager.SetupRoundUI();
         startUI.SetActive(true);
         loopUI.SetActive(true);
         yield return StartCoroutine(SetPlayerHealth());
+        yield return StartCoroutine(Countdown());
         StateManager(GameState.roundLoop);
     }
 
@@ -165,6 +168,18 @@ public class RoundManagerScript : MonoBehaviour
         gWinUI.SetActive(true);
         yield return new WaitForSeconds(3);
         StateManager(GameState.menu);
+    }
+
+    private IEnumerator Countdown()
+    {
+        startUI.GetComponentInChildren<TextMeshProUGUI>().text = "3";
+        yield return  new WaitForSeconds(.4f);
+        startUI.GetComponentInChildren<TextMeshProUGUI>().text = "2";
+        yield return  new WaitForSeconds(.4f);
+        startUI.GetComponentInChildren<TextMeshProUGUI>().text = "1";
+        yield return  new WaitForSeconds(.4f);
+        startUI.GetComponentInChildren<TextMeshProUGUI>().text = "GO";
+        yield return  new WaitForSeconds(.4f);
     }
 
     private IEnumerator SetPlayerHealth()
@@ -250,6 +265,20 @@ public class RoundManagerScript : MonoBehaviour
         else
         {
             StateManager(GameState.roundWin);
+        }
+    }
+
+#endregion
+
+#region Player Locking
+
+    public void LockSwitch()
+    {
+        PlayerMovement[] playerScripts = FindObjectsByType<PlayerMovement>(FindObjectsSortMode.None);
+
+        foreach(PlayerMovement player in playerScripts)
+        {
+            player.enabled = !player.enabled;
         }
     }
 

@@ -52,6 +52,10 @@ public class PlayerMovement : MonoBehaviour
     private float _coyoteTimer;
 
     
+    //coyote time vars
+    public float bulletTimeModifier = 1f;
+
+    
     //JUMPING NOTE: look for input in Update, but do the movement in Fixed Update
 
 
@@ -82,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
         Jump();
         if (!_isAiming)
         {
+            bulletTimeModifier = 1f;
             if (_isGrounded)
             {
                 Move(MoveStats.GroundAcceleration, MoveStats.GroundDeceleration, myInputManager.Movement);
@@ -94,6 +99,8 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            
+            bulletTimeModifier = 0.1f;
             TurnCheck(myInputManager.Movement);
             if (_isGrounded)
             {
@@ -105,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
                 
             }
             
-            _rb.linearVelocity = new Vector2(_moveVelocity.x, _rb.linearVelocity.y);
+            _rb.linearVelocity = new Vector2(_moveVelocity.x, _rb.linearVelocity.y * bulletTimeModifier);
             
         }
         
@@ -363,7 +370,7 @@ public class PlayerMovement : MonoBehaviour
         //CLAMP FALL SPEED
         VerticalVelocity = Mathf.Clamp(VerticalVelocity, -MoveStats.MaxFallSpeed, 50f);
 
-        _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, VerticalVelocity*3f);
+        _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, VerticalVelocity*3f * bulletTimeModifier);
 
     }
 

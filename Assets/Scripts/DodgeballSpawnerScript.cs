@@ -7,7 +7,7 @@ public class DodgeballSpawnerScript : MonoBehaviour
     public List<GameObject> spawnPoints;
     public GameObject dodgeballPrefab;
     private float timeSinceLastSpawn = 0f;
-    public float spawnInterval =  5f;
+    public float spawnInterval =  15f;
     private int dodgeballsSpawned = 0;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created

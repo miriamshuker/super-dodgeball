@@ -138,7 +138,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8329217331649575634}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -181,8 +181,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e1d0608dd7a08947bf946bf6fb1d099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HB_TriggerMovement
-  telePoints: []
-  hyperSpawner: {fileID: 0}
   MovementCountdown: 7
   DespawnCountdown: 23
   ColorCountdown: 3
+  speed: 23
+  bounceStrength: 7
+  arcSpeed: 13

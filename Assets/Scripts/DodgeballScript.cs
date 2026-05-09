@@ -89,6 +89,8 @@ public class DodgeballScript : MonoBehaviour
             }
         }
     }
+
+    #region Bouncing
     private IEnumerator horiBounce(Vector2 bounceVelo)
     {
         anim.SetBool("landed", true);
@@ -121,6 +123,8 @@ public class DodgeballScript : MonoBehaviour
             break;
         }
     }
+#endregion
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         anim.SetBool("inAir", true);

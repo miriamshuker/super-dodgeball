@@ -6,8 +6,8 @@ public class DodgeballScript : MonoBehaviour
 
     public bool _isLive = false;
     public string originPlayer = "";
-    public float bounce = .07f;
-    public float playerBounceScale = 7f;
+    public float bounce = .7f;
+    public float playerBounceScale = 130f;
     private Rigidbody2D rb;
     private CircleCollider2D circle;
     private float radius;
@@ -115,9 +115,12 @@ public class DodgeballScript : MonoBehaviour
             if (playerRb == null) continue;
 
             Vector2 bounceDirection = (col.transform.position - transform.position).normalized;
+
+            float hitPower = Mathf.Max(bounceVelo.magnitude, 30f);
+            playerRb.AddForce(bounceDirection * hitPower * playerBounceScale, ForceMode2D.Impulse);
+
             rb.linearVelocity = -bounceDirection * bounceVelo.magnitude * bounce;
-            playerRb.AddForce(bounceDirection * bounceVelo.magnitude * playerBounceScale, ForceMode2D.Impulse);
-            Debug.Log("bounce player");
+
             _isLive = true;
             originPlayer = "";
             break;

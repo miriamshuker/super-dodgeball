@@ -314,7 +314,7 @@ MonoBehaviour:
   _isLive: 1
   originPlayer: 
   bounce: 0.7
-  playerBounceScale: 100
+  playerBounceScale: 130
   impact: {fileID: 8340927812040240453, guid: 29f0fb005709b6c4c829e8cccaea3e90, type: 3}
   impactSpawn: {fileID: 1141584071173860434}
   audioSource: {fileID: -3028162186825524019}

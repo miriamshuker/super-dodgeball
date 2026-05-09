@@ -1,4 +1,3 @@
-@ -1,1238 +1,1388 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &454448486421401338
@@ -1202,15 +1201,11 @@ MonoBehaviour:
   playerDbScript: {fileID: 9068809417290037970}
   inHyperForm: 0
   chargeTime: 0
-<<<<<<< HEAD
-  maxChargeTime: 10
+  maxChargeTime: 5
   playerBody: {fileID: 9003035189737324132}
   hyperBeam: {fileID: 5542162518732539460}
   gokuCharge: {fileID: 9140236730990200494}
   gokuShoot: {fileID: 3839327410407782493}
-=======
-  gokuCharge: {fileID: 0}
-  gokuShoot: {fileID: 0}
 --- !u!114 &1540512789307227314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1223,10 +1218,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f658899a8d73f40a582bb539875aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-<<<<<<< Updated upstream
-=======
->>>>>>> d5dfbbcc39e36939bb27fa24d2907c064ce2b523
->>>>>>> Stashed changes
 --- !u!1 &9035591307463627622
 GameObject:
   m_ObjectHideFlags: 0

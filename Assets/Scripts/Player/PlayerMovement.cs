@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     public bool _isAiming;
-
+    public bool _isHyper = false;
 
     private void Awake()
     {
@@ -84,7 +84,27 @@ public class PlayerMovement : MonoBehaviour
     {
         CollisionChecks();
         Jump();
-        if (!_isAiming)
+
+        if (_isHyper)
+        {
+            // Bullet time slowdown
+            bulletTimeModifier = 0.1f;
+
+            // Slow downward velocity significantly
+            if (_isGrounded)
+            {
+                _moveVelocity = Vector2.zero;
+            }
+            else
+            {
+                _moveVelocity = Vector2.Lerp(_moveVelocity, Vector2.zero, (MoveStats.AirDeceleration / 2) * Time.fixedDeltaTime);
+            }
+
+            // Apply upward float
+            VerticalVelocity = 2f; // Adjust this value to control float speed
+            _rb.linearVelocity = new Vector2(_moveVelocity.x, VerticalVelocity * bulletTimeModifier);
+        }
+        else if (!_isAiming)
         {
             bulletTimeModifier = 1f;
             if (_isGrounded)
@@ -94,12 +114,10 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 Move(MoveStats.AirAcceleration, MoveStats.AirDeceleration, myInputManager.Movement);
-                
             }
         }
-        else
+        else if (_isAiming)
         {
-            
             bulletTimeModifier = 0.1f;
             TurnCheck(myInputManager.Movement);
             if (_isGrounded)
@@ -108,14 +126,11 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-               _moveVelocity = Vector2.Lerp(_moveVelocity, Vector2.zero, (MoveStats.AirDeceleration/2) * Time.fixedDeltaTime);
-                
+                _moveVelocity = Vector2.Lerp(_moveVelocity, Vector2.zero, (MoveStats.AirDeceleration / 2) * Time.fixedDeltaTime);
             }
-            
+
             _rb.linearVelocity = new Vector2(_moveVelocity.x, _rb.linearVelocity.y * bulletTimeModifier);
-            
         }
-        
     }
 
 

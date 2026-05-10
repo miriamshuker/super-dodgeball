@@ -15,19 +15,23 @@ public class HB_PlayerScript : MonoBehaviour
     [SerializeField] private bool inHyperForm;
     [SerializeField] private float chargeTime;
     [SerializeField] private float maxChargeTime = 4f;
+    private float chargePower = 0f;
+    [SerializeField] private float minCharge = .7f;
+    [SerializeField] private float maxCharge = 2.3f;
 
 
     [SerializeField] private GameObject playerBody;
+    [SerializeField] private GameObject hyperAnchor;
+    [SerializeField] private GameObject hyperAim;
     [SerializeField] private GameObject hyperBeam;
-    [SerializeField] private GameObject gokuCharge;
-    [SerializeField] private GameObject gokuShoot;
-    private Vector2 lastMousePos;
+    private Vector3 hyperBeamSize;
     private Vector2 smoothedDirection = Vector2.up;
     private float directionSmoothTime = 0.1f;
 
     private Vector2 beamDirection = Vector2.up;
-    private float chargePower = 0f;
+    public float angle;
     private float debugTimer = 0f;
+    private SpriteRenderer spriteRenderer;
 
 
     // Hyper state tracking
@@ -44,8 +48,12 @@ public class HB_PlayerScript : MonoBehaviour
 
     void Start()
     {
+        spriteRenderer = playerBody.GetComponent<SpriteRenderer>();
         triggerSpawner = GameObject.Find("==== HyperSpawner =====");
         inHyperForm = false;
+
+        hyperBeamSize = hyperAnchor.transform.localScale;
+
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -79,13 +87,11 @@ public class HB_PlayerScript : MonoBehaviour
 
     private void HandleCharging()
     {
-        gokuCharge?.SetActive(true);
+        hyperAim.SetActive(true);
         chargeTime -= Time.deltaTime;
         debugTimer += Time.deltaTime;
 
-        Vector2 currentMousePos = Mouse.current.position.ReadValue();
-        Vector2 mouseDelta = currentMousePos - lastMousePos;
-        lastMousePos = currentMousePos;
+        Vector2 mouseDelta = Mouse.current.delta.ReadValue();
 
         if (mouseDelta != Vector2.zero)
         {
@@ -95,17 +101,22 @@ public class HB_PlayerScript : MonoBehaviour
         }
 
         float moveSpeed = mouseDelta.magnitude;
-        chargePower = Mathf.Clamp01(chargePower + (moveSpeed * 0.0001f)); // Adjust multiplier as needed
-        float angle = Mathf.Atan2(beamDirection.y, beamDirection.x) * Mathf.Rad2Deg; //GOKUUUUUU
+        chargePower = Mathf.Clamp(chargePower + (moveSpeed * 0.0007f), minCharge, maxCharge);
+
+        angle = Mathf.Atan2(beamDirection.y, beamDirection.x) * Mathf.Rad2Deg;
         playerBody.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+        spriteRenderer.flipY = beamDirection.x < 0f;
+
+        hyperAnchor.transform.localScale = new Vector3(hyperBeamSize.x, hyperBeamSize.y * chargePower, 1f);
         
         if (debugTimer >= 1f)
         {
             Debug.Log($"Charging... Time left: {chargeTime:F2}s | Beam direction: {beamDirection} | Charge Power: {chargePower:F2}");
             debugTimer = 0f;
         }
-        
-        if (chargeTime <= 0f)
+
+        if (chargeTime <= 0f || chargePower == maxCharge)
         {
             TransitionToShooting();
         }
@@ -113,11 +124,12 @@ public class HB_PlayerScript : MonoBehaviour
 
     private void HandleShooting()
     {
-        gokuCharge?.SetActive(false);
-        gokuShoot?.SetActive(true);
+        hyperAim.SetActive(false);
         hyperBeam.SetActive(true);
 
-        //Debug.Log("Shooting hyper beam toward " + beamDirection + " with " + chargePower);
+        playerBody.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        spriteRenderer.flipY = beamDirection.x < 0f;
+
         if (hyperStateTimer >= 1.5f)
         {
             TransitionToCooldown();
@@ -127,15 +139,20 @@ public class HB_PlayerScript : MonoBehaviour
     private void HandleCooldown()
     {
         hyperBeam.SetActive(false);
-        gokuShoot?.SetActive(false);
         playerBody.transform.rotation = Quaternion.identity;
         inHyperForm = false;
         playerMovement._isHyper = false;
         triggerSpawner.GetComponent<HB_TriggerSpawner>().hyperInPlay = false;
 
+        playerMovement._isFacingRight = beamDirection.x >= 0f;
+
+        hyperAnchor.transform.localScale = new Vector3(hyperBeamSize.x, hyperBeamSize.y, 1f); //resets hyperbeam prevent scale issues
+        spriteRenderer.flipY = false; //and this returns rotation to normal
+
         currentHyperState = HyperState.Idle;
         hyperStateTimer = 0f;
         chargeTime = maxChargeTime;
+        chargePower = 0f;
 
         //Debug.Log("Hyper move complete");
     }

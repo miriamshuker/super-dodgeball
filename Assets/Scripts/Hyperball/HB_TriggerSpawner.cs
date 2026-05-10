@@ -10,6 +10,10 @@ public class HB_TriggerSpawner : MonoBehaviour
 
     void Start()
     {
+        spawnPoints = new List<GameObject>();
+        foreach (Transform child in this.gameObject.transform)
+            spawnPoints.Add(child.gameObject);
+
         hyperInPlay = false;
     }
 

@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Collider2D _feetCollider;
     [SerializeField] private Collider2D _bodyCollider;
 
+    private SpriteRenderer _spriteRenderer;
+
     [SerializeField] private Animator anim;
 
     [SerializeField] private AudioSource audioSource;
@@ -69,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
 
         anim = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -87,22 +90,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (_isHyper)
         {
-            // Bullet time slowdown
             bulletTimeModifier = 0.1f;
 
-            // Slow downward velocity significantly
-            if (_isGrounded)
-            {
-                _moveVelocity = Vector2.zero;
-            }
-            else
-            {
-                _moveVelocity = Vector2.Lerp(_moveVelocity, Vector2.zero, (MoveStats.AirDeceleration / 2) * Time.fixedDeltaTime);
-            }
+            _moveVelocity = Vector2.Lerp(_moveVelocity, Vector2.zero, MoveStats.AirDeceleration * Time.fixedDeltaTime);
 
-            // Apply upward float
-            VerticalVelocity = 2f; // Adjust this value to control float speed
-            _rb.linearVelocity = new Vector2(_moveVelocity.x, VerticalVelocity * bulletTimeModifier);
+            VerticalVelocity = Mathf.Lerp(VerticalVelocity, 2f, 3f * Time.fixedDeltaTime);
+
+            _rb.linearVelocity = new Vector2(_moveVelocity.x, -VerticalVelocity * bulletTimeModifier);
         }
         else if (!_isAiming)
         {
@@ -180,12 +174,12 @@ public class PlayerMovement : MonoBehaviour
         if (turnRight)
         {
             _isFacingRight = true;
-            transform.Rotate(0f,180f,0f);
+            _spriteRenderer.flipX = false;
         }
         else
         {
             _isFacingRight = false;
-            transform.Rotate(0f,-180f,0f);
+            _spriteRenderer.flipX = true;
         }
     }
 

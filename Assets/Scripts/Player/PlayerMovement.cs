@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rb;
 
     //movement variables
-    private Vector2 _moveVelocity;
+    public Vector2 _moveVelocity;
     public bool _isFacingRight;
 
     //collision check variables

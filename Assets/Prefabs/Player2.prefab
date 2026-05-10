@@ -347,7 +347,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1046,6 +1046,7 @@ MonoBehaviour:
   audioSource: {fileID: -4621646724033985058}
   jumpSound: {fileID: 8300000, guid: b5f9ca11342e948779228ef4a9346a2d, type: 3}
   landSound: {fileID: 8300000, guid: efc67dea7e2da4f258c7a51b18dcce92, type: 3}
+  _moveVelocity: {x: 0, y: 0}
   _isFacingRight: 0
   bulletTimeModifier: 1
   _isAiming: 0
@@ -1362,8 +1363,6 @@ MonoBehaviour:
   hyperAnchor: {fileID: 8979814657334063073}
   hyperAim: {fileID: 5542428418156819345}
   hyperBeam: {fileID: 4505721012407366102}
-  gokuCharge: {fileID: 0}
-  gokuShoot: {fileID: 0}
   angle: 0
 --- !u!114 &-2210768810466320158
 MonoBehaviour:

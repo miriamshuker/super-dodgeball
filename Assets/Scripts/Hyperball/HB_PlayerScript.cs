@@ -162,7 +162,17 @@ public class HB_PlayerScript : MonoBehaviour
         currentHyperState = HyperState.Shooting;
         hyperStateTimer = 0f;
 
-        Debug.Log($"Shooting beam with direction: {beamDirection} and power: {chargePower}");
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            Debug.Log("push back player");
+
+            float knockbackForce = .1f * chargePower;
+            rb.AddForce(-beamDirection * knockbackForce, ForceMode2D.Impulse);
+            playerMovement._moveVelocity = rb.linearVelocity;
+        }
+
+        //Debug.Log($"Shooting beam with direction: {beamDirection} and power: {chargePower}");
     }
 
     private void TransitionToCooldown()

@@ -8,7 +8,8 @@ public class HB_TriggerMovement : MonoBehaviour
     {
         Arc,
         Line,
-        //Wobble,
+        Wobble,
+        Jitter,
         Teleport,
     }
     [SerializeField] private MovementSetting currentMoveType = MovementSetting.Line;
@@ -29,6 +30,12 @@ public class HB_TriggerMovement : MonoBehaviour
     [SerializeField] private float arcSpeed = 2f;
     private float arcTorque;
     GameObject teleportTarget;
+    private float wobbleTime = 0f;
+    [SerializeField] private float wobbleFrequency = 2f;
+    [SerializeField] private float wobbleAmplitude = 3f;
+    private float jitterInterval = 0f;
+    [SerializeField] private float jitterForce = 6f;
+    [SerializeField] private float jitterRate = 0.08f;
 
     private SpriteRenderer spriteRend;
     private bool isRed = true;
@@ -83,9 +90,12 @@ public class HB_TriggerMovement : MonoBehaviour
             case MovementSetting.Line:
                 MoveLine();
                 break;
-            //case MovementSetting.Wobble:
-            //    MoveWobble();
-            //    break;
+            case MovementSetting.Wobble:
+                MoveWobble();
+                break;
+            case MovementSetting.Jitter:
+                MoveJitter();
+                break;
             case MovementSetting.Teleport:
                 MoveTeleport();
                 break;
@@ -107,22 +117,63 @@ public class HB_TriggerMovement : MonoBehaviour
     }
     private void MoveWobble()
     {
-        //move in a shakey wobble
-        //Debug.Log("skip wobble");
-        //currentMoveType = (MovementSetting)Random.Range(0, System.Enum.GetValues(typeof(MovementSetting)).Length);
+        // Smooth sine-wave weave while travelling forward
+        wobbleTime += Time.deltaTime;
+        float sine = Mathf.Sin(wobbleTime * wobbleFrequency) * wobbleAmplitude;
+        Vector2 perp = new Vector2(-moveDirection.y, moveDirection.x); // perpendicular to travel
+        rb.linearVelocity = (moveDirection * speed) + (perp * sine);
+    }
+    private void MoveJitter()
+    {
+        // Randomly kicks in a new direction every jitterRate seconds
+        jitterInterval -= Time.deltaTime;
+        if (jitterInterval <= 0f)
+        {
+            Vector2 randomKick = Random.insideUnitCircle.normalized;
+            rb.AddForce(randomKick * jitterForce, ForceMode2D.Impulse);
+            jitterInterval = jitterRate;
+        }
     }
     private void MoveTeleport()
     {
+        teleportTarget = GetSafeTeleportTarget();
         if (teleportTarget == null) return;
+
         transform.position = teleportTarget.transform.position;
         currentMoveType = (MovementSetting)Random.Range(0, System.Enum.GetValues(typeof(MovementSetting)).Length - 1);
     }
+
+    private GameObject GetSafeTeleportTarget()
+    {
+        float minPlayerDistance = 3f;
+        int maxAttempts = 10;
+
+        for (int i = 0; i < maxAttempts; i++)
+        {
+            GameObject candidate = telePoints[Random.Range(0, telePoints.Count)];
+            bool tooClose = false;
+
+            foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+            {
+                if (Vector2.Distance(candidate.transform.position, player.transform.position) < minPlayerDistance)
+                {
+                    tooClose = true;
+                    break;
+                }
+            }
+
+            if (!tooClose) return candidate;
+        }
+
+        Debug.LogWarning("No safe teleport point found, using random fallback");
+        return telePoints[Random.Range(0, telePoints.Count)];
+    }
     #endregion
+
     private void OnCollisionEnter2D(Collision2D collision)
     {        
         if (collision.gameObject.CompareTag("Terrain"))
         {
-            Debug.Log("hit terrain");
             Vector2 normal = (transform.position - collision.transform.position).normalized;
             moveDirection = Vector2.Reflect(moveDirection, normal);
 
@@ -132,9 +183,9 @@ public class HB_TriggerMovement : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Dodgeball"))
         {
-            //bounce off ball like pool cues where they kinda pop off each other
             Vector2 bounceDir = (transform.position - collision.transform.position).normalized;
             rb.AddForce(bounceDir * bounceStrength, ForceMode2D.Impulse);
+            collision.rigidbody.AddForce(-bounceDir * bounceStrength, ForceMode2D.Impulse);
         }
     }
 

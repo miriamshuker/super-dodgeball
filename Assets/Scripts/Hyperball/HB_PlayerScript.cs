@@ -204,6 +204,7 @@ public class HB_PlayerScript : MonoBehaviour
             HB_PlayerScript shooterScript = collision.transform.parent.GetComponent<HB_PlayerScript>();
             if (shooterScript != null)
             {
+                Debug.Log("punch back target player");
                 Vector2 knockbackDir = shooterScript.beamDirection.normalized;
                 playerRb.AddForce(knockbackDir * knockbackForce, ForceMode2D.Impulse);
             }

@@ -18,6 +18,7 @@ public class HB_TriggerMovement : MonoBehaviour
     private CircleCollider2D circ;
     private Rigidbody2D rb;
     private List<GameObject> telePoints;
+    private List<GameObject> players = new List<GameObject>();
     private GameObject hyperSpawner;
 
     [SerializeField] private float MovementCountdown = 7f;
@@ -37,11 +38,15 @@ public class HB_TriggerMovement : MonoBehaviour
     [SerializeField] private float jitterForce = 6f;
     [SerializeField] private float jitterRate = 0.08f;
 
+    public bool claimed = false;
+
     private SpriteRenderer spriteRend;
     private bool isRed = true;
 
     void Start()
     {
+        foreach (GameObject p in GameObject.FindGameObjectsWithTag("Player"))
+            players.Add(p);
         hyperSpawner = GameObject.Find("==== HyperSpawner =====");
         moveDirection = Random.insideUnitCircle.normalized;
         arcTorque = Random.Range(-2f, 2f);
@@ -143,9 +148,10 @@ public class HB_TriggerMovement : MonoBehaviour
         currentMoveType = (MovementSetting)Random.Range(0, System.Enum.GetValues(typeof(MovementSetting)).Length - 1);
     }
 
+
     private GameObject GetSafeTeleportTarget()
     {
-        float minPlayerDistance = 3f;
+        float minPlayerDistance = 8f;
         int maxAttempts = 10;
 
         for (int i = 0; i < maxAttempts; i++)
@@ -153,8 +159,9 @@ public class HB_TriggerMovement : MonoBehaviour
             GameObject candidate = telePoints[Random.Range(0, telePoints.Count)];
             bool tooClose = false;
 
-            foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+            foreach (GameObject player in players)
             {
+                if (player == null) continue;
                 if (Vector2.Distance(candidate.transform.position, player.transform.position) < minPlayerDistance)
                 {
                     tooClose = true;

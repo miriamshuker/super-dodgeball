@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerDodgeballScript : MonoBehaviour
 {
-    
+
     public InputManager myInputManager;
     public GameObject heldDodgeballAsset;
     private SpriteRenderer heldDodgeballSpriteRenderer; 
@@ -92,11 +92,18 @@ public class PlayerDodgeballScript : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Dodgeball"))
+        if (collision.gameObject.CompareTag("HyperBeam")) return;
+
+        if (collision.gameObject.CompareTag("Dodgeball"))
         {
             hitDodgeball = collision.gameObject;
             DodgeballScript _hitDodgeBallScript = hitDodgeball.GetComponent<DodgeballScript>();
+            HB_PlayerScript _HBplayer = this.gameObject.GetComponent<HB_PlayerScript>();
 
+            if (_HBplayer.inHyperForm)
+            {
+                return;
+            }
 
             if (_hitDodgeBallScript._isLive && (_hitDodgeBallScript.originPlayer != this.name))
             {

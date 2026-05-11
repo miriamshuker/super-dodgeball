@@ -352,7 +352,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.013779774, y: -0.013251543}
+  m_Offset: {x: 0.013779759, y: -0.00012177229}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -362,7 +362,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.9724405, y: 0.52404785}
+  m_Size: {x: 0.9724405, y: 0.90668595}
   m_EdgeRadius: 0
 --- !u!114 &6377667525897899165
 MonoBehaviour:
@@ -371,7 +371,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4505721012407366102}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f344c60372fa2914e960bad1738e4268, type: 3}
   m_Name: 
@@ -1377,7 +1377,9 @@ MonoBehaviour:
   hyperAnchor: {fileID: 8979814657334063073}
   hyperAim: {fileID: 5542428418156819345}
   hyperBeam: {fileID: 4505721012407366102}
+  beamDirection: {x: 0, y: 1}
   angle: 0
+  knockbackForce: 20
 --- !u!114 &-2210768810466320158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1385,7 +1387,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9003035189737324132}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10f658899a8d73f40a582bb539875aeb, type: 3}
   m_Name: 

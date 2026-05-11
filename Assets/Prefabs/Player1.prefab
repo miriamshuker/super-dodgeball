@@ -462,7 +462,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.013801709, y: -0.013251543}
+  m_Offset: {x: 0.013801694, y: 0.0007767081}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -472,7 +472,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.9723966, y: 0.52404785}
+  m_Size: {x: 0.9723966, y: 0.8962642}
   m_EdgeRadius: 0
 --- !u!114 &2032135750074008104
 MonoBehaviour:
@@ -481,11 +481,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5542162518732539460}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f344c60372fa2914e960bad1738e4268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  knockbackForce: 20
 --- !u!1 &6295076648884511821
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,7 +1377,9 @@ MonoBehaviour:
   hyperAnchor: {fileID: 6711077506429871196}
   hyperAim: {fileID: 2561836630836630640}
   hyperBeam: {fileID: 5542162518732539460}
+  beamDirection: {x: 0, y: 1}
   angle: 0
+  knockbackForce: 20
 --- !u!114 &1540512789307227314
 MonoBehaviour:
   m_ObjectHideFlags: 0

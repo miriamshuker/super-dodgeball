@@ -18,6 +18,7 @@ public class HB_HyperBeam : MonoBehaviour
             Rigidbody2D playerRb = other.GetComponent<Rigidbody2D>();
             if (playerRb != null)
             {
+                Debug.Log("knockback target");
                 Vector2 knockbackDir = ((Vector2)other.transform.position - (Vector2)transform.parent.position).normalized;
                 playerRb.AddForce(knockbackDir * knockbackForce, ForceMode2D.Impulse);
             }

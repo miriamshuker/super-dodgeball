@@ -12,7 +12,7 @@ public class HB_PlayerScript : MonoBehaviour
     public PlayerDodgeballScript playerDbScript;
 
 
-    [SerializeField] private bool inHyperForm;
+    public bool inHyperForm;
     [SerializeField] private float chargeTime;
     [SerializeField] private float maxChargeTime = 4f;
     private float chargePower = 0f;
@@ -28,9 +28,11 @@ public class HB_PlayerScript : MonoBehaviour
     private Vector2 smoothedDirection = Vector2.up;
     private float directionSmoothTime = 0.1f;
 
-    private Vector2 beamDirection = Vector2.up;
+    public Vector2 beamDirection = Vector2.up;
     public float angle;
     private SpriteRenderer spriteRenderer;
+    private Rigidbody2D playerRb;
+    [SerializeField] private float knockbackForce = 20f;
 
 
     // Hyper state tracking
@@ -50,6 +52,8 @@ public class HB_PlayerScript : MonoBehaviour
         spriteRenderer = playerBody.GetComponent<SpriteRenderer>();
         triggerSpawner = GameObject.Find("==== HyperSpawner =====");
         inHyperForm = false;
+        playerRb = GetComponent<Rigidbody2D>();
+
 
         hyperBeamSize = hyperAnchor.transform.localScale;
 
@@ -154,12 +158,11 @@ public class HB_PlayerScript : MonoBehaviour
         currentHyperState = HyperState.Shooting;
         hyperStateTimer = 0f;
 
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        if (rb != null)
+        if (playerRb != null)
         {
             float knockbackForce = .1f * chargePower;
-            rb.AddForce(-beamDirection * knockbackForce, ForceMode2D.Impulse);
-            playerMovement._moveVelocity = rb.linearVelocity;
+           playerRb.AddForce(-beamDirection * knockbackForce, ForceMode2D.Impulse);
+            playerMovement._moveVelocity = playerRb.linearVelocity;
         }
 
         //Debug.Log($"Shooting beam with direction: {beamDirection} and power: {chargePower}");
@@ -175,6 +178,11 @@ public class HB_PlayerScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("HyperTrigger"))
         {
+            HB_TriggerMovement trigger = collision.GetComponent<HB_TriggerMovement>();
+            if (trigger == null || trigger.claimed) return; // already taken
+            trigger.claimed = true;
+
+            Destroy(collision.gameObject);
             Destroy(collision.gameObject);
             inHyperForm = true;
             currentHyperState = HyperState.Charging;
@@ -190,8 +198,15 @@ public class HB_PlayerScript : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("HyperBeam"))
         {
-            //asd
-            Debug.Log("hit by hyperbeam");
+            //RoundManagerScript.Instance.PlayerDamaged(this.name);
+            //RoundManagerScript.Instance.PlayerDamaged(this.name);
+
+            HB_PlayerScript shooterScript = collision.transform.parent.GetComponent<HB_PlayerScript>();
+            if (shooterScript != null)
+            {
+                Vector2 knockbackDir = shooterScript.beamDirection.normalized;
+                playerRb.AddForce(knockbackDir * knockbackForce, ForceMode2D.Impulse);
+            }
         }
     }
 }

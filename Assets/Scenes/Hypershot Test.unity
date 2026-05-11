@@ -1168,7 +1168,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.15}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -20.6, y: -90.40001}
+  m_AnchoredPosition: {x: -20.6, y: -90.400024}
   m_SizeDelta: {x: 40, y: 37}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &86724294
@@ -2629,7 +2629,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &198645463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3535,6 +3535,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6920662461750982976, guid: 47a583aeb140b33418b34da9e02b5c2e, type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920662461750982976, guid: 47a583aeb140b33418b34da9e02b5c2e, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
       value: 1
       objectReference: {fileID: 0}
@@ -3632,6 +3636,8 @@ MonoBehaviour:
   hyperTriggerPrefab: {fileID: 8329217331649575634, guid: e7d0ae1bbd362a34eb661942e5bb0edf, type: 3}
   spawnCountdown: 5
   hyperInPlay: 0
+  minPlayerDistance: 3
+  maxSpawnAttempts: 10
 --- !u!4 &1440119185
 Transform:
   m_ObjectHideFlags: 0
@@ -3689,7 +3695,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -94.654}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -27.5, y: -72.8}
+  m_AnchoredPosition: {x: -27.5, y: -72.79999}
   m_SizeDelta: {x: 40, y: 37}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1512809445
@@ -3859,7 +3865,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6424567767784422375, guid: e2b8d3291d5831a468ed686807278f87, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

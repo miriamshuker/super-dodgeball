@@ -18,10 +18,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Level_Towers.unity
     guid: 5e3de5e8c2ada534bab8bec51f9b5a0f
   - enabled: 1
-    path: Assets/Scenes/Level_SuperFlat.unity
+    path: Assets/Scenes/Level_TheCage.unity
     guid: 1c5566fdfe6638f438f1d576a4e9e8df
   - enabled: 1
-    path: Assets/Scenes/Level_TheCage.unity
+    path: Assets/Scenes/Level_SuperFlat.unity
     guid: 201a367110b87144590270a689d6f21f
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity

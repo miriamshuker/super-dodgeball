@@ -866,7 +866,7 @@ GameObject:
   - component: {fileID: 4150001798148268052}
   - component: {fileID: 3704368151357101277}
   - component: {fileID: 8510783929527241748}
-  - component: {fileID: 1540512789307227314}
+  - component: {fileID: 465789593077054917}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -1063,7 +1063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
-  m_Actions: {fileID: 0}
+  m_Actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -1366,7 +1366,7 @@ MonoBehaviour:
   beamDirection: {x: 0, y: 1}
   angle: 0
   knockbackForce: 20
---- !u!114 &1540512789307227314
+--- !u!114 &465789593077054917
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1377,7 +1377,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10f658899a8d73f40a582bb539875aeb, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerLockingScript
 --- !u!1 &9035591307463627622
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,8 +8,7 @@ public class PlayerDodgeballScript : MonoBehaviour
     private SpriteRenderer heldDodgeballSpriteRenderer; 
     private Color lerpedColor = Color.white;
     private GameObject hitDodgeball;
-    [SerializeField]
-    public GameObject dodgeballPrefab;
+    [SerializeField] public GameObject dodgeballPrefab;
     public PlayerMovement playerMovement;
     [SerializeField] private CapsuleCollider2D bounceCollider;
 
@@ -20,6 +19,10 @@ public class PlayerDodgeballScript : MonoBehaviour
     public bool holdingDodgeball = false;
     private float timeSpentAiming = 0f;
     private float maxAimingTime = 5f;
+
+    [SerializeField] private GameObject throwChargeObj;
+    [SerializeField] private GameObject chargeAmtObj;
+    //meoew mewo meow meoooww!! meow.. prruirrruup purrr pspspspspppp pspspsp sps pprrrrr - luke was here
 
     public float firingSpeed = 160f;
     
@@ -46,7 +49,6 @@ public class PlayerDodgeballScript : MonoBehaviour
 
         if (playerMovement._isAiming)
         {
-            
             aimIndicator.SetActive(true);
             HoldingThrowTimer();
             lerpedColor = Color.Lerp(Color.red, Color.white, Mathf.PingPong(Time.time, (2/timeSpentAiming)));
@@ -147,6 +149,7 @@ public class PlayerDodgeballScript : MonoBehaviour
         else if (myInputManager.ThrowWasReleased)
         {
             Throw();
+            
         }
     }
 
@@ -155,6 +158,7 @@ public class PlayerDodgeballScript : MonoBehaviour
         //Debug.Log("firing");
 
         aimIndicator.SetActive(false);
+        throwChargeObj.SetActive(false);
         playerMovement._isAiming = false;
         heldDodgeballSpriteRenderer.color = Color.white;
         heldDodgeballAsset.SetActive(false);
@@ -194,9 +198,28 @@ public class PlayerDodgeballScript : MonoBehaviour
 
     private void HoldingThrowTimer()
     {
+        ChargeMeter();
         if (timeSpentAiming < maxAimingTime)
         {
             timeSpentAiming += Time.deltaTime;
+        }
+    }
+    #endregion
+
+    #region
+    private void ChargeMeter()
+    {
+        throwChargeObj.SetActive(true);
+        chargeAmtObj.transform.localScale = new Vector2(1, timeSpentAiming / maxAimingTime);
+
+        float angle = aimIndicator.transform.eulerAngles.z;
+        if(angle >= 91 || angle <= -91)
+        {
+            throwChargeObj.transform.position = new Vector2(transform.position.x+13, transform.position.y);
+        }
+        else
+        {
+            throwChargeObj.transform.position = new Vector2(transform.position.x-13, transform.position.y);
         }
     }
     #endregion

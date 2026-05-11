@@ -88,10 +88,6 @@ public class DodgeballScript : MonoBehaviour
                 Physics2D.IgnoreCollision(circle, col.collider, true);
             }
         }
-        if (col.gameObject.CompareTag("HyperBeam"))
-        {
-            Destroy(this.gameObject);
-        }
     }
 
     #region Bouncing

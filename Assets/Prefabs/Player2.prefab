@@ -237,6 +237,7 @@ GameObject:
   - component: {fileID: 2865824116871450845}
   - component: {fileID: 4075927486424014833}
   - component: {fileID: 3087845650894577404}
+  - component: {fileID: 6377667525897899165}
   m_Layer: 0
   m_Name: Temp_HyperBeam
   m_TagString: HyperBeam
@@ -363,6 +364,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.9724405, y: 0.52404785}
   m_EdgeRadius: 0
+--- !u!114 &6377667525897899165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4505721012407366102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f344c60372fa2914e960bad1738e4268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HB_HyperBeam
+  knockbackForce: 20
 --- !u!1 &5350747687531439536
 GameObject:
   m_ObjectHideFlags: 0

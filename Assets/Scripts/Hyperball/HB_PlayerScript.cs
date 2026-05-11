@@ -30,7 +30,6 @@ public class HB_PlayerScript : MonoBehaviour
 
     private Vector2 beamDirection = Vector2.up;
     public float angle;
-    private float debugTimer = 0f;
     private SpriteRenderer spriteRenderer;
 
 
@@ -89,8 +88,6 @@ public class HB_PlayerScript : MonoBehaviour
     {
         hyperAim.SetActive(true);
         chargeTime -= Time.deltaTime;
-        debugTimer += Time.deltaTime;
-
         Vector2 mouseDelta = Mouse.current.delta.ReadValue();
 
         if (mouseDelta != Vector2.zero)
@@ -109,12 +106,7 @@ public class HB_PlayerScript : MonoBehaviour
         spriteRenderer.flipY = beamDirection.x < 0f;
 
         hyperAnchor.transform.localScale = new Vector3(hyperBeamSize.x, hyperBeamSize.y * chargePower, 1f);
-        
-        if (debugTimer >= 1f)
-        {
-            Debug.Log($"Charging... Time left: {chargeTime:F2}s | Beam direction: {beamDirection} | Charge Power: {chargePower:F2}");
-            debugTimer = 0f;
-        }
+
 
         if (chargeTime <= 0f || chargePower == maxCharge)
         {
@@ -165,8 +157,6 @@ public class HB_PlayerScript : MonoBehaviour
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            Debug.Log("push back player");
-
             float knockbackForce = .1f * chargePower;
             rb.AddForce(-beamDirection * knockbackForce, ForceMode2D.Impulse);
             playerMovement._moveVelocity = rb.linearVelocity;
@@ -195,7 +185,6 @@ public class HB_PlayerScript : MonoBehaviour
             if (playerDbScript.GetComponent<PlayerDodgeballScript>().holdingDodgeball)
             {
                 playerDbScript.GetComponent<PlayerDodgeballScript>().holdingDodgeball = false;
-                Debug.Log("Dodgeball evaporated");
             }
             playerMovement._isHyper = true;
         }

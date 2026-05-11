@@ -14,6 +14,11 @@ public class MenuFunctionalityScript : MonoBehaviour
     private GameObject _StartMenuHolder;
     [SerializeField]
     private GameObject _SelectRoundHolder;
+    [SerializeField]
+    private EventSystem myEventSystem;
+    
+    [SerializeField]
+    private GameObject eventSystemGO;
     
 
 
@@ -21,6 +26,7 @@ public class MenuFunctionalityScript : MonoBehaviour
     {
         _StartMenuHolder.SetActive(true);
         _SelectRoundHolder.SetActive(false);
+        myEventSystem.SetSelectedGameObject(_StartButton);
     }
 
     // Update is called once per frame
@@ -33,14 +39,24 @@ public class MenuFunctionalityScript : MonoBehaviour
     {
         _StartMenuHolder.SetActive(true);
         _SelectRoundHolder.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(_StartButton);
+        myEventSystem.SetSelectedGameObject(_StartButton);
     }
 
     public void GoToRoundSelect()
     {
         _StartMenuHolder.SetActive(false);
         _SelectRoundHolder.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(_SingleRoundButton);
+        myEventSystem.SetSelectedGameObject(_SingleRoundButton);
 
+    }
+
+    public void RestartMenu()
+    {
+        Debug.Log("Restarted Menu");
+        eventSystemGO = GameObject.Find("EventSystem");
+        myEventSystem = eventSystemGO.GetComponent<EventSystem>();
+        _StartMenuHolder.SetActive(true);
+        _SelectRoundHolder.SetActive(false);
+        myEventSystem.SetSelectedGameObject(_StartButton);
     }
 }

@@ -607,6 +607,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 43312790}
+  - {fileID: 769902237}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &560157572
@@ -638,6 +639,7 @@ MonoBehaviour:
   loopUI: {fileID: 1888676546}
   rWinUI: {fileID: 1277212992}
   gWinUI: {fileID: 1512883282}
+  menuFunctionality: {fileID: 560157576}
   sceneNames:
   - Level_Base
   - SampleScene
@@ -877,6 +879,8 @@ MonoBehaviour:
   _SingleRoundButton: {fileID: 1007568771}
   _StartMenuHolder: {fileID: 821248118}
   _SelectRoundHolder: {fileID: 1801855089}
+  myEventSystem: {fileID: 769902236}
+  eventSystemGO: {fileID: 769902234}
 --- !u!1 &576760644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1483,12 +1487,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 769902234}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 560157571}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &821248118
 GameObject:
@@ -3940,6 +3944,5 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 769902237}
   - {fileID: 1537396046308450444}
   - {fileID: 560157571}

@@ -61,6 +61,7 @@ public class RoundManagerScript : MonoBehaviour
     
     [Header("UI")]
     [SerializeField] private GameObject menuUI, startUI, loopUI, rWinUI, gWinUI;
+    [SerializeField] private MenuFunctionalityScript menuFunctionality; 
     private bool occuring;
 
     [Header("List of Scene Names")]
@@ -127,6 +128,7 @@ public class RoundManagerScript : MonoBehaviour
         loopUI.SetActive(false);
         SceneManager.LoadScene("Menu");
         menuUI.SetActive(true);
+        menuFunctionality.RestartMenu();
         p1RoundWinUIManager.SetWins();
         p2RoundWinUIManager.SetWins();
     }

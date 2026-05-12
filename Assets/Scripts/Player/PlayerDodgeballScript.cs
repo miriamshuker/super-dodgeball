@@ -15,6 +15,7 @@ public class PlayerDodgeballScript : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip throwSound;
     [SerializeField] private AudioClip hitSound;
+    [SerializeField] private AudioClip pickupSound;
 
     public bool holdingDodgeball = false;
     private float timeSpentAiming = 0f;
@@ -110,7 +111,7 @@ public class PlayerDodgeballScript : MonoBehaviour
             if (_hitDodgeBallScript._isLive && (_hitDodgeBallScript.originPlayer != this.name))
             {
                 audioSource.pitch = Random.Range(.8f, 1.2f);
-                audioSource.PlayOneShot(hitSound);
+                audioSource.PlayOneShot(hitSound, 1.3f);
                 //Debug.Log("OUCH");
                 RoundManagerScript.Instance.PlayerDamaged(this.name);
                 
@@ -121,6 +122,7 @@ public class PlayerDodgeballScript : MonoBehaviour
 
             else if (!_hitDodgeBallScript._isLive && !holdingDodgeball)
             {
+                audioSource.PlayOneShot(pickupSound);
                 Destroy(hitDodgeball);
                 //Debug.Log("Pick up Dodgeball"); 
                 heldDodgeballAsset.SetActive(true);

@@ -19,6 +19,9 @@ public class MenuFunctionalityScript : MonoBehaviour
     
     [SerializeField]
     private GameObject eventSystemGO;
+
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip buttonSound;
     
 
 
@@ -37,6 +40,7 @@ public class MenuFunctionalityScript : MonoBehaviour
 
     public void GoToStart()
     {
+        audioSource.PlayOneShot(buttonSound);
         _StartMenuHolder.SetActive(true);
         _SelectRoundHolder.SetActive(false);
         myEventSystem.SetSelectedGameObject(_StartButton);
@@ -44,6 +48,7 @@ public class MenuFunctionalityScript : MonoBehaviour
 
     public void GoToRoundSelect()
     {
+        audioSource.PlayOneShot(buttonSound);
         _StartMenuHolder.SetActive(false);
         _SelectRoundHolder.SetActive(true);
         myEventSystem.SetSelectedGameObject(_SingleRoundButton);
@@ -52,6 +57,7 @@ public class MenuFunctionalityScript : MonoBehaviour
 
     public void RestartMenu()
     {
+        audioSource.PlayOneShot(buttonSound);
         Debug.Log("Restarted Menu");
         eventSystemGO = GameObject.Find("EventSystem");
         myEventSystem = eventSystemGO.GetComponent<EventSystem>();

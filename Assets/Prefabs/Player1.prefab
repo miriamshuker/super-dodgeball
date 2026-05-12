@@ -1538,7 +1538,8 @@ MonoBehaviour:
   bounceCollider: {fileID: 5527850780401229029}
   audioSource: {fileID: 1592551811037092664}
   throwSound: {fileID: 8300000, guid: 54a5deeb81d7d493dacca22dd04bfe6a, type: 3}
-  hitSound: {fileID: 8300000, guid: fbd6bcff8397b47aca9e6e303bd8f4d7, type: 3}
+  hitSound: {fileID: 8300000, guid: 3444e931a27b04374b42891c6093e78e, type: 3}
+  pickupSound: {fileID: 8300000, guid: b24c1e5ac5b2140a88bfc919995deeb0, type: 3}
   holdingDodgeball: 0
   throwChargeObj: {fileID: 5495057328145430706}
   chargeAmtObj: {fileID: 8172888874775326408}

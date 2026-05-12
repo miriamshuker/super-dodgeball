@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!82 &1566199570 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7554673535021373932, guid: f1e608bea11c81442912d9676cc7312a, type: 3}
+  m_PrefabInstance: {fileID: 8027279041081151739}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &1836740347 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 6920662461750982976, guid: 47a583aeb140b33418b34da9e02b5c2e, type: 3}
@@ -193,6 +198,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 322645060788193849, guid: f1e608bea11c81442912d9676cc7312a, type: 3}
+      propertyPath: sceneNames.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 322645060788193849, guid: f1e608bea11c81442912d9676cc7312a, type: 3}
+      propertyPath: 'sceneNames.Array.data[6]'
+      value: Level_Dropdown
+      objectReference: {fileID: 0}
+    - target: {fileID: 322645060788193849, guid: f1e608bea11c81442912d9676cc7312a, type: 3}
+      propertyPath: 'sceneNames.Array.data[7]'
+      value: Level_TheGauntlet
+      objectReference: {fileID: 0}
+    - target: {fileID: 322645060788193849, guid: f1e608bea11c81442912d9676cc7312a, type: 3}
+      propertyPath: 'sceneNames.Array.data[8]'
+      value: Level_Temple
+      objectReference: {fileID: 0}
+    - target: {fileID: 1570366453562475924, guid: f1e608bea11c81442912d9676cc7312a, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1566199570}
+    - target: {fileID: 1570366453562475924, guid: f1e608bea11c81442912d9676cc7312a, type: 3}
+      propertyPath: buttonSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8a96aec17a48947dd9759fd05b775084, type: 3}
     - target: {fileID: 2313015303551988889, guid: f1e608bea11c81442912d9676cc7312a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -1543,7 +1543,7 @@ MonoBehaviour:
   holdingDodgeball: 0
   throwChargeObj: {fileID: 5495057328145430706}
   chargeAmtObj: {fileID: 8172888874775326408}
-  firingSpeed: 1600
+  firingSpeed: 2000
   aimIndicator: {fileID: 454448486421401338}
 --- !u!95 &4150001798148268052
 Animator:
@@ -1613,7 +1613,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9003035189737324132}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10f658899a8d73f40a582bb539875aeb, type: 3}
   m_Name: 
